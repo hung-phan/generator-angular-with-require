@@ -144,7 +144,26 @@ module.exports = function (grunt) {
             }
         }, 
         
-        
+        // require js
+        requirejs: {
+            dist: {
+                options: {
+                    baseUrl: "<%= yeoman.app %>/scripts",
+                    include: "main",
+                    mainConfigFile: "<%= yeoman.app %>/scripts/main.js",
+                    out: "<%= yeoman.dist %>/scripts/main.js",
+                    //logLevel: 0,
+                    optimize: "uglify",
+                    // optimize: "none",
+                    paths: {
+                        'angular' : '../bower_components/angular/angular.min',
+                        'angular-resource' : '../bower_components/angular-resource/angular-resource.min',
+                        'angular-route' : '../bower_components/angular-route/angular-route.min',
+                        'jquery' : '../bower_components/jquery/jquery.min'
+                    }
+                }
+            }
+        },
         // Mocha tesing framework configuration options
         // mocha: {
         //     all: {
@@ -384,8 +403,9 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-bower-requirejs');
+    grunt.registerTask('bundle-js', ['bower']);
 
-    grunt.registerTask('require', ['bower']);
+    grunt.registerTask('require', ['requirejs']);
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
