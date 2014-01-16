@@ -3,7 +3,6 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 
-
 var AngularWithRequireGenerator = module.exports = function AngularWithRequireGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
   
@@ -48,11 +47,8 @@ AngularWithRequireGenerator.prototype.askForCSSFramework = function askForCSSFra
     }, {
       name: 'SASS Bourbon framework',
       value: 'BourbonFramework'
-    },  {
-      name: 'Bootstrap with Bourbon',
-      value: 'BootstrapWithBourbon'
     }, {
-      name: 'Bootstrap SASS',
+      name: 'SASS Bootstrap',
       value: 'SASSBootstrap'
     }, {
       name: 'Native Bootstrap',
@@ -72,19 +68,16 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
   var prompts = [{
     type: 'checkbox',
     name: 'jsFile',
-    message: 'What more would you like to include?',
+    message: 'What utils would you like to include?',
     choices: [{
-      name: 'Modernizr',
-      value: 'includeModernizr'
-    }, {
       name: 'Underscore.js',
       value: 'includeUnderscore'
     }, {
-      name: 'UI-Bootstrap',
+      name: 'Angular UI-Bootstrap',
       value: 'includeUIBootstrap'
     }, {
-      name: 'UI-select2',
-      value: 'includeUISelect2'
+      name: 'Jasmine Testing framework',
+      value: 'includeJasmine'
     }]
   }];
 
@@ -92,17 +85,18 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
     function includeJS(js) { return props.jsFile.indexOf(js) !== -1; }
 
     // JS
-    this.includeModernizr = includeJS('includeModernizr');
     this.includeUnderscore = includeJS('includeUnderscore');
     this.includeUIBootstrap = includeJS('includeUIBootstrap');
-    this.includeUISelect2 = includeJS('includeUISelect2');
+    this.includeJasmine = includeJS('includeJasmine');
+
+    if (this.includeJasmine) { this.testFramework = 'jasmine'; }
     
     cb();
   }.bind(this));
 };
 
 AngularWithRequireGenerator.prototype.gruntfile = function gruntfile() {
-  this.copy('_Gruntfile.js', 'Gruntfile.js');
+  this.template('Gruntfile.js');
 };
 
 AngularWithRequireGenerator.prototype.packageJSON= function packageJSON() {
@@ -111,11 +105,12 @@ AngularWithRequireGenerator.prototype.packageJSON= function packageJSON() {
 
 AngularWithRequireGenerator.prototype.bower = function bower() {
   this.copy('bowerrc', '.bowerrc');
-  this.copy('_bower.json', 'bower.json');
+  this.template('_bower.json', 'bower.json');
 };
 
 AngularWithRequireGenerator.prototype.jshint = function jshint() {
   this.copy('editorconfig', '.editorconfig');
+  this.copy('jshintrc', '.jshintrc');
 };
 
 AngularWithRequireGenerator.prototype.h5bp = function h5bp() {
@@ -123,7 +118,7 @@ AngularWithRequireGenerator.prototype.h5bp = function h5bp() {
   this.copy('404.html', 'app/404.html');
   this.copy('robots.txt', 'app/robots.txt');
   this.copy('htaccess', 'app/.htaccess');
-  this.copy('index.html', 'app/index.html');
+  this.template('index.html', 'app/index.html');
   this.copy('partials/home.html', 'app/partials/home.html');
 };
 
@@ -140,12 +135,6 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
     case 'BourbonFramework':
       header += "@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';\n" + 
         "@import '../bower_components/neat/app/assets/stylesheets/neat';\n";
-      break;
-    case 'BootstrapWithBourbon':
-      header += "$icon-font-path: '/bower_components/sass-bootstrap/fonts/';\n" +
-        "@import 'sass-bootstrap/lib/bootstrap';\n" +
-        "@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';\n" + 
-        "@import '../bower_components/neat/app/assets/stylesheets/neat';\n"; 
       break;
     case 'SASSBootstrap':
       header += "$icon-font-path: '/bower_components/sass-bootstrap/fonts/'\n" +
@@ -177,7 +166,7 @@ AngularWithRequireGenerator.prototype.install = function install() {
     return;
   }
 
-  var done = this.async();
+  var done = this.async(), self = this;
   this.installDependencies({
     skipMessage: this.options['skip-install-message'],
     skipInstall: this.options['skip-install'],
