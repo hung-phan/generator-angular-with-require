@@ -1,0 +1,15 @@
+{
+  "name": "<%= _.slugify(appname) %>",
+  "version": "0.0.1",
+  "dependencies": {
+    "bourbon": "3.1.8",
+    "neat": "1.5.0",
+    "angular": "~1.2.9",
+    "angular-resource": "~1.2.9",
+    "angular-route": "~1.2.9",
+    "jquery": "~2.0.3",
+    "requirejs": "~2.1.10",
+    "modernizr": "~2.7.1"  
+  }
+}
+
