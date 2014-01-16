@@ -145,22 +145,31 @@ module.exports = function (grunt) {
         }, 
         
         // require js
+ptions: {
+          dir: "target/",
+          modules:[
+            {
+              name:'MyModule'
+            }
+          ],
         requirejs: {
             dist: {
                 options: {
-                    baseUrl: "<%= yeoman.app %>/scripts",
+                    appDir: "<%= yeoman.app%>/scripts/",
+                    baseUrl: ".",
                     include: "main",
                     mainConfigFile: "<%= yeoman.app %>/scripts/main.js",
-                    out: "<%= yeoman.dist %>/scripts/main.js",
-                    //logLevel: 0,
+                    dir: "<%= yeoman.dist %>/scripts/",
                     optimize: "uglify",
-                    // optimize: "none",
-                    paths: {
-                        'angular' : '../bower_components/angular/angular.min',
-                        'angular-resource' : '../bower_components/angular-resource/angular-resource.min',
-                        'angular-route' : '../bower_components/angular-route/angular-route.min',
-                        'jquery' : '../bower_components/jquery/jquery.min'
-                    }
+                    modules: [
+                        {
+                            name: 'RequireJSWithAngular'
+                        }
+                    ],
+                    logLevel: 0,
+                    findNestedDependencies: true,
+                    fileExclusionRegExp: /^\./,
+                    inlineText: true
                 }
             }
         },
@@ -405,6 +414,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bower-requirejs');
     grunt.registerTask('bundle-js', ['bower']);
 
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.registerTask('require', ['requirejs']);
 
     grunt.registerTask('serve', function (target) {
