@@ -71,13 +71,16 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
     message: 'What utils would you like to include?',
     choices: [{
       name: 'Underscore.js',
-      value: 'includeUnderscore'
+      value: 'includeUnderscore',
+      checked: true
     }, {
       name: 'Angular UI-Bootstrap',
-      value: 'includeUIBootstrap'
+      value: 'includeUIBootstrap',
+      checked: true
     }, {
       name: 'Jasmine Testing framework',
-      value: 'includeJasmine'
+      value: 'includeJasmine',
+      checked: true
     }]
   }];
 

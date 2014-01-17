@@ -78,12 +78,12 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-<% if (cssFramework === 'CompassFramework') { %>
+<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
-<% } else if (cssFramework === 'BourbonFramework' && cssFramework === 'SASSBootstrap') { %>
+<% } else if (cssFramework === 'BourbonFramework') { %>
             scripts: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['sass:server', 'autoprefixer']
@@ -172,8 +172,8 @@ module.exports = function (grunt) {
             }
         },
 
-        // Jasmine testing framework configuration options
 <% if (testFramework === 'jasmine') { %>
+        // Jasmine testing framework configuration options
         jasmine: {
             pivotal: {
                 src: '<%%= yeoman.app %>/js/**/*.js',
@@ -194,8 +194,8 @@ module.exports = function (grunt) {
             }
         },
 <% } %>
+<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
         // Compiles Sass to CSS and generates necessary files if requested
-<% if (cssFramework === 'CompassFramework') { %>
         compass: {
             options: {
                 sassDir: '<%%= yeoman.app %>/styles',
@@ -222,9 +222,31 @@ module.exports = function (grunt) {
                 }
             }
         },
-<% } else if (cssFramework === 'BourbonFramework' && cssFramework === 'SASSBootstrap') { %>
-
-<% } %>
+<% } else if (cssFramework === 'BourbonFramework') { %>
+        sass: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%%= yeoman.app %>/styles',
+                    src: ['*.scss'],
+                    dest: '<%%= yeoman.dist %>/styles',
+                    ext: '.css'
+                }]
+            },
+            server: {
+                options: {
+                    debugInfo: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%%= yeoman.app %>/styles',
+                    src: ['*.scss'],
+                    dest: '.tmp/styles',
+                    ext: '.css'
+                }]
+            }
+        },
+<% } %> 
         // Add vendor prefixed styles
         autoprefixer: {
             options: {
@@ -412,9 +434,9 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
-<% if (cssFramework === 'CompassFramework') { %>
+<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
                 'compass:server',
-<% } else if (cssFramework === 'BourbonFramework' && cssFramework === 'SASSBootstrap') { %>
+<% } else if (cssFramework === 'BourbonFramework') { %>
                 'sass:server',
 <% } %>
                 'copy:styles'
@@ -423,10 +445,10 @@ module.exports = function (grunt) {
                 'copy:styles'
             ],
             dist: [
-<% if (cssFramework === 'CompassFramework') { %>
+<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
                 'compass',
-<% } else if (cssFramework === 'BourbonFramework' && cssFramework === 'SASSBootstrap') { %>
-                'sass',
+<% } else if (cssFramework === 'BourbonFramework') { %>
+                'sass:dist',
 <% } %>
                 'copy:styles',
                 'imagemin',
@@ -467,8 +489,9 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
-            'connect:test',
-            'jasmine'
+            'connect:test',<% if (testFramework === 'mocha') { %>
+            'mocha'<% } else if (testFramework === 'jasmine') { %>
+            'jasmine'<% } %> 
         ]);
     });
 
