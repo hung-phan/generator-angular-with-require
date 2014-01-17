@@ -7,10 +7,9 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-uglify": "~0.2.0",
-<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
+<% if (cssFramework === 'CompassFramework') { %>
     "grunt-contrib-compass": "~0.7.0",
-<% } %>
-<% if (cssFramework === 'BourbonFramework') { %>
+<% } else if (cssFramework === 'SASSBootstrap') { %>
     "grunt-contrib-sass": "~0.6.0",
 <% } %>
     "grunt-contrib-jshint": "~0.7.0",

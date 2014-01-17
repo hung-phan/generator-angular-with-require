@@ -45,9 +45,6 @@ AngularWithRequireGenerator.prototype.askForCSSFramework = function askForCSSFra
       name: 'SASS Compass framework',
       value: 'CompassFramework'
     }, {
-      name: 'SASS Bourbon framework',
-      value: 'BourbonFramework'
-    }, {
       name: 'SASS Bootstrap',
       value: 'SASSBootstrap'
     }, {
@@ -122,7 +119,7 @@ AngularWithRequireGenerator.prototype.h5bp = function h5bp() {
   this.copy('robots.txt', 'app/robots.txt');
   this.copy('htaccess', 'app/.htaccess');
   this.template('index.html', 'app/index.html');
-  this.copy('partials/home.html', 'app/partials/home.html');
+  this.template('partials/home.html', 'app/partials/home.html');
 };
 
 AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet() {
@@ -135,14 +132,14 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
       header += "@import 'compass';\n" + 
         "@import 'compass/reset';\n";
       break;
-    case 'BourbonFramework':
-      header += "@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';\n" + 
-        "@import '../bower_components/neat/app/assets/stylesheets/neat';\n";
-      break;
     case 'SASSBootstrap':
-      header += "$icon-font-path: '/bower_components/sass-bootstrap/fonts/'\n" +
-        "@import 'sass-bootstrap/lib/bootstrap';\n";
+      header += "@import '../bower_components/sass-bootstrap/lib/bootstrap';\n" +
+          "$icon-font-path: '../bower_components/sass-bootstrap/fonts/';\n";
       break;
+  }
+  if (this.cssFramework !== 'NativeBootstrap') {
+      header = "@import 'custom_mixins.scss';" + header;
+      this.copy('_custom_mixins.scss', 'app/styles/_custom_mixins.scss');
   }
   this.write('app/styles/' + cssFile, header + content);
 };

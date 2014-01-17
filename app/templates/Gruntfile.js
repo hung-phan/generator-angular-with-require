@@ -78,12 +78,12 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
+<% if (cssFramework === 'CompassFramework') { %>
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
-<% } else if (cssFramework === 'BourbonFramework') { %>
+<% } else if (cssFramework === 'SASSBootstrap') { %>
             scripts: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['sass:server', 'autoprefixer']
@@ -194,7 +194,7 @@ module.exports = function (grunt) {
             }
         },
 <% } %>
-<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
+<% if (cssFramework === 'CompassFramework') { %>
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
@@ -222,9 +222,12 @@ module.exports = function (grunt) {
                 }
             }
         },
-<% } else if (cssFramework === 'BourbonFramework') { %>
+<% } else if (cssFramework === 'SASSBootstrap') { %>
         sass: {
             dist: {
+                 options: {
+                    style: 'compressed'
+                }, 
                 files: [{
                     expand: true,
                     cwd: '<%%= yeoman.app %>/styles',
@@ -235,7 +238,8 @@ module.exports = function (grunt) {
             },
             server: {
                 options: {
-                    debugInfo: true
+                    debugInfo: true,
+                    style: 'expanded'
                 },
                 files: [{
                     expand: true,
@@ -434,9 +438,9 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
-<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
+ <% if (cssFramework === 'CompassFramework') { %>
                 'compass:server',
-<% } else if (cssFramework === 'BourbonFramework') { %>
+<% } else if (cssFramework === 'SASSBootstrap') { %>
                 'sass:server',
 <% } %>
                 'copy:styles'
@@ -445,9 +449,9 @@ module.exports = function (grunt) {
                 'copy:styles'
             ],
             dist: [
-<% if (cssFramework === 'CompassFramework' || cssFramework === 'SASSBootstrap') { %>
+ <% if (cssFramework === 'CompassFramework') { %>
                 'compass',
-<% } else if (cssFramework === 'BourbonFramework') { %>
+<% } else if (cssFramework === 'SASSBootstrap') { %>
                 'sass:dist',
 <% } %>
                 'copy:styles',
