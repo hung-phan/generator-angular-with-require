@@ -6,7 +6,7 @@ define('main', [], function() {
             'angular-route': '../bower_components/angular-route/angular-route',
             'jquery': '../bower_components/jquery/jquery',<% if (includeUnderscore) { %>
             'underscore': '../bower_components/underscore/underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
-            'sass-bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
+            'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
             'controllers': 'controllers/controllers',
             'directives': 'directives/directives',
             'filters': 'filters/filters',
@@ -33,7 +33,7 @@ define('main', [], function() {
         'angular-resource',
         'angular-route',<% if (includeUnderscore) { %> 
         'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
-        'sass-bootstrap',<% } %>
+        'bootstrap',<% } %>
         'services',
         'filters',
         'directives',

@@ -479,6 +479,22 @@ module.exports = function (grunt) {
         ]);
     });
 
+    grunt.registerTask('requirejs-bundle', function() {
+        function replaceBetween(string, start, end, what) {
+            return string.substring(0, start) + what + string.substring(end);
+        };
+
+        var mainjs = grunt.file.read('dist/scripts/main.js'), first, second, content;
+
+        while (mainjs.indexOf('../bower_components') != -1) {
+            first = mainjs.indexOf('../bower_components');
+            second = mainjs.indexOf('"', first);
+            content = 'vendor/' + mainjs.substring(first, second).split('/').pop();
+            mainjs = replaceBetween(mainjs, first, second, content);
+        }
+        grunt.file.write('dist/scripts/main.js', mainjs);
+    });
+
     grunt.registerTask('build', [
         'clean:dist',
         'useminPrepare',
@@ -489,6 +505,7 @@ module.exports = function (grunt) {
         'requirejs',
         'copy:afterBuild',
         'clean:afterBuild',
+        'requirejs-bundle',
         // 'uglify',
         'copy:dist',
         'modernizr',
