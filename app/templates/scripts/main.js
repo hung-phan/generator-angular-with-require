@@ -1,10 +1,14 @@
 define('main', [], function() {
     requirejs.config({
         paths: {
-            'angular': '../bower_components/angular/angular.min',
-            'angular-resource': '../bower_components/angular-resource/angular-resource.min',
-            'angular-route': '../bower_components/angular-route/angular-route.min',
-            'jquery': '../bower_components/jquery/jquery.min'
+            'angular': '../bower_components/angular/angular',
+            'angular-resource': '../bower_components/angular-resource/angular-resource',
+            'angular-route': '../bower_components/angular-route/angular-route',
+            'jquery': '../bower_components/jquery/jquery',
+            'controllers': 'controllers/controllers',
+            'directives': 'directives/directives',
+            'filters': 'filters/filters',
+            'services': 'services/services',
         },
         shim: {
             'angular': {

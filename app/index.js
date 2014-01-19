@@ -152,10 +152,10 @@ AngularWithRequireGenerator.prototype.jsFile = function jsFile() {
   var prefix = 'app/scripts';
   this.mkdir(prefix);
   this.copy('scripts/main.js', prefix + '/main.js');
-  this.copy('scripts/controllers.js', prefix + '/controllers.js');
-  this.copy('scripts/directives.js', prefix + '/directives.js');
-  this.copy('scripts/filters.js', prefix + '/filters.js');
-  this.copy('scripts/services.js', prefix + '/services.js');
+  this.copy('scripts/controllers.js', prefix + '/controllers/controllers.js');
+  this.copy('scripts/directives.js', prefix + '/directives/directives.js');
+  this.copy('scripts/filters.js', prefix + '/filters/filters.js');
+  this.copy('scripts/services.js', prefix + '/services/services.js');
 };
 
 AngularWithRequireGenerator.prototype.app = function app() {

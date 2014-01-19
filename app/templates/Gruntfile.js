@@ -150,7 +150,7 @@ module.exports = function (grunt) {
                     ],
                     preserveLicenseComments: false,        // remove all comments
                     removeCombined: true,                // remove files which aren't in bundles
-                    optimize: 'none',                    // minify bundles with uglify 2
+                    optimize: 'uglify',                    // minify bundles with uglify 2
                     useStrict: true
                 }
             }
@@ -421,7 +421,6 @@ module.exports = function (grunt) {
     });
     grunt.registerTask('bundle-js', ['bower']);
 
-    grunt.registerTask('require', ['requirejs']);
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
@@ -465,10 +464,11 @@ module.exports = function (grunt) {
         'autoprefixer',
         'concat',
         'cssmin',
-        'uglify',
+        'requirejs',
+        // 'uglify',
         'copy:dist',
         'modernizr',
-        'rev',
+        // 'rev',
         'usemin',
         'htmlmin'
     ]);
