@@ -114,6 +114,15 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
+            afterBuild: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '<%%= yeoman.dist %>/scripts/*.js',
+                        '!<%%= yeoman.dist %>/scripts/main.js'
+                    ]
+                }]
+            },
             server: '.tmp'
         },
 
@@ -377,6 +386,20 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
+            afterBuild: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    dot: true,
+                    cwd: '<%%= yeoman.dist %>/scripts',
+                    dest: '<%%= yeoman.dist %>/scripts/vendor',
+                    src: [
+                        '*.js',
+                        '!main.js'
+                    ]
+                }]
+            
+            },
             styles: {
                 expand: true,
                 dot: true,
@@ -421,7 +444,6 @@ module.exports = function (grunt) {
     });
     grunt.registerTask('bundle-js', ['bower']);
 
-
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -465,6 +487,8 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'requirejs',
+        'copy:afterBuild',
+        'clean:afterBuild',
         // 'uglify',
         'copy:dist',
         'modernizr',

@@ -4,7 +4,9 @@ define('main', [], function() {
             'angular': '../bower_components/angular/angular',
             'angular-resource': '../bower_components/angular-resource/angular-resource',
             'angular-route': '../bower_components/angular-route/angular-route',
-            'jquery': '../bower_components/jquery/jquery',
+            'jquery': '../bower_components/jquery/jquery',<% if (includeUnderscore) { %>
+            'underscore': '../bower_components/underscore/underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
+            'sass-bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
             'controllers': 'controllers/controllers',
             'directives': 'directives/directives',
             'filters': 'filters/filters',
@@ -29,11 +31,13 @@ define('main', [], function() {
         'angular',
         'jquery',
         'angular-resource',
-        'angular-route',
-        'controllers',
-        'filters',
+        'angular-route',<% if (includeUnderscore) { %> 
+        'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
+        'sass-bootstrap',<% } %>
         'services',
-        'directives'
+        'filters',
+        'directives',
+        'controllers'
     ], function(angular, $) {
         'use strict';
 

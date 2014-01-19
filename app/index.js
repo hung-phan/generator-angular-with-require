@@ -1,6 +1,7 @@
 'use strict';
 var util = require('util');
 var path = require('path');
+var fs = require('fs');
 var yeoman = require('yeoman-generator');
 
 var AngularWithRequireGenerator = module.exports = function AngularWithRequireGenerator(args, options, config) {
@@ -161,6 +162,7 @@ AngularWithRequireGenerator.prototype.jsFile = function jsFile() {
 AngularWithRequireGenerator.prototype.app = function app() {
   this.mkdir('app/images');
   this.mkdir('app/partials');
+  this.mkdir('app/scripts/vendor');
   this.mkdir('config');
   this.mkdir('test');
 };
@@ -170,11 +172,19 @@ AngularWithRequireGenerator.prototype.install = function install() {
     return;
   }
 
-  var done = this.async(), self = this;
+  var done = this.async();
   this.installDependencies({
     skipMessage: this.options['skip-install-message'],
     skipInstall: this.options['skip-install'],
-    callback: done
+    callback: function() {
+      var projectDir = process.cwd() + '/app';
+      fs.exists(projectDir + '/scripts/vendor/require.js', function(exists) {
+        if (!exists) {
+          fs.createReadStream(projectDir + '/bower_components/requirejs/require.js')
+          .pipe(fs.createWriteStream(projectDir + '/scripts/vendor/require.js'));
+        }
+      });
+    }
   });
 };
 
