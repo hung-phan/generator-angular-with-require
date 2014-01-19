@@ -3,7 +3,7 @@ define(['angular'], function(angular) {
 
     /* Services */
     angular.module('webServices', ['ngResource'])
-    .factory('LoginService', function($resource) {
-        return $resource('login');
-    });
+        .factory('LoginService', function($resource) {
+            return $resource('login');
+        });
 });

@@ -3,8 +3,8 @@ define(['angular'], function(angular) {
     /* Filters */
 
     angular.module('webFilters', []).filter('numberFilter', function() {
-		return function(input) {
-			return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		};
+        return function(input) {
+            return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        };
     });
 });

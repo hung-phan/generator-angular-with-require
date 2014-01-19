@@ -77,18 +77,15 @@ module.exports = function (grunt) {
             },
             gruntfile: {
                 files: ['Gruntfile.js']
-            },
-<% if (cssFramework === 'CompassFramework') { %>
+            },<% if (cssFramework === 'CompassFramework') { %>
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
-            },
-<% } else if (cssFramework === 'SASSBootstrap') { %>
+            },<% } else if (cssFramework === 'SASSBootstrap') { %>
             scripts: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['sass:server', 'autoprefixer']
-            },
-<% } %>
+            },<% } %>
             styles: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
                 tasks: ['newer:copy:styles', 'autoprefixer']
@@ -140,38 +137,24 @@ module.exports = function (grunt) {
                 rjsConfig: '<%%= yeoman.app %>/scripts/main.js'
             }
         }, 
-        
+                    
         // require js
         requirejs: {
             dist: {
                 options: {
-                    appDir: "<%%= yeoman.app%>/scripts/",
-                    baseUrl: ".",
-                    include: "main",
-                    mainConfigFile: "<%%= yeoman.app %>/scripts/main.js",
                     dir: "<%%= yeoman.dist %>/scripts/",
-                    optimize: "uglify",
+                    baseUrl: '<%%= yeoman.app %>/scripts',                    // Directory to look for the require configuration file
+                    mainConfigFile: '<%%= yeoman.app %>/scripts/main.js',    // This is relative to the grunt file
                     modules: [
-                        {
-                            name: 'controllers'
-                        }, {
-                            name: 'filters'
-                        }, {
-                            name: 'services'
-                        }, {
-                            name: 'directives'
-                        }
-                    ],       
-                    useStrict: true,
-                    wrap: true,     
-                    logLevel: 0,
-                    findNestedDependencies: true,
-                    fileExclusionRegExp: /^\./,
-                    inlineText: true
+                        { name: 'main' }                // Create a global bundle
+                    ],
+                    preserveLicenseComments: false,        // remove all comments
+                    removeCombined: true,                // remove files which aren't in bundles
+                    optimize: 'none',                    // minify bundles with uglify 2
+                    useStrict: true
                 }
             }
         },
-
 <% if (testFramework === 'jasmine') { %>
         // Jasmine testing framework configuration options
         jasmine: {
@@ -182,8 +165,7 @@ module.exports = function (grunt) {
                     helpers: 'test/spec/*Helper.js'
                 }
             }
-        },             
-<% } else { %>
+        },<% } else { %>
         // Mocha tesing framework configuration options
         mocha: {
             all: {
@@ -192,8 +174,7 @@ module.exports = function (grunt) {
                     urls: ['http://<%%= connect.test.options.hostname %>:<%%= connect.test.options.port %>/index.html']
                 }
             }
-        },
-<% } %>
+        },<% } %>
 <% if (cssFramework === 'CompassFramework') { %>
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
@@ -221,8 +202,7 @@ module.exports = function (grunt) {
                     debugInfo: true
                 }
             }
-        },
-<% } else if (cssFramework === 'SASSBootstrap') { %>
+        },<% } else if (cssFramework === 'SASSBootstrap') { %>
         sass: {
             dist: {
                  options: {
@@ -249,8 +229,7 @@ module.exports = function (grunt) {
                     ext: '.css'
                 }]
             }
-        },
-<% } %> 
+        },<% } %> 
         // Add vendor prefixed styles
         autoprefixer: {
             options: {
@@ -368,26 +347,12 @@ module.exports = function (grunt) {
         },
         uglify: {
             dist: {
-                files: {
-                    '<%%= yeoman.dist %>/scripts/require.js': [
-                        '<%%= yeoman.app%>/scripts/require.js'
-                    ],
-                    '<%%= yeoman.dist %>/scripts/main.js': [
-                        '<%%= yeoman.app%>/scripts/main.js'
-                    ],
-                    '<%%= yeoman.dist %>/scripts/controllers.js': [
-                        '<%%= yeoman.app%>/scripts/controllers.js'
-                    ],
-                    '<%%= yeoman.dist %>/scripts/filters.js': [
-                        '<%%= yeoman.app%>/scripts/filters.js'
-                    ],
-                    '<%%= yeoman.dist %>/scripts/directives.js': [
-                        '<%%= yeoman.app%>/scripts/directives.js'
-                    ],
-                    '<%%= yeoman.dist %>/scripts/services.js': [
-                        '<%%= yeoman.app%>/scripts/services.js'
-                    ]
-                }
+                files: [{
+                    src: '<%%= yeoman.app %>/scripts/*.js',  // source files mask
+                    dest: '<%%= yeoman.dist %>/scripts/',    // destination folder
+                    expand: true,    // allow dynamic building
+                    flatten: true   // remove all unnecessary nesting
+                }]
             }
         },
         concat: {
@@ -437,23 +402,17 @@ module.exports = function (grunt) {
 
         // Run some tasks in parallel to speed up build process
         concurrent: {
-            server: [
- <% if (cssFramework === 'CompassFramework') { %>
-                'compass:server',
-<% } else if (cssFramework === 'SASSBootstrap') { %>
-                'sass:server',
-<% } %>
+            server: [ <% if (cssFramework === 'CompassFramework') { %>
+                'compass:server',<% } else if (cssFramework === 'SASSBootstrap') { %>
+                'sass:server',<% } %>
                 'copy:styles'
             ],
             test: [
                 'copy:styles'
             ],
-            dist: [
- <% if (cssFramework === 'CompassFramework') { %>
-                'compass',
-<% } else if (cssFramework === 'SASSBootstrap') { %>
-                'sass:dist',
-<% } %>
+            dist: [ <% if (cssFramework === 'CompassFramework') { %>
+                'compass',<% } else if (cssFramework === 'SASSBootstrap') { %>
+                'sass:dist',<% } %>
                 'copy:styles',
                 'imagemin',
                 'svgmin'

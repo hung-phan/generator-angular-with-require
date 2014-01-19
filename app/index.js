@@ -42,14 +42,14 @@ AngularWithRequireGenerator.prototype.askForCSSFramework = function askForCSSFra
     name: 'cssFramework',
     message: 'What CSS framework would you like to include?',
     choices: [{
-      name: 'SASS Compass framework',
-      value: 'CompassFramework'
-    }, {
       name: 'SASS Bootstrap',
       value: 'SASSBootstrap'
     }, {
       name: 'Native Bootstrap',
       value: 'NativeBootstrap'
+    }, {
+      name: 'SASS Compass framework',
+      value: 'CompassFramework'
     }]
   }];
 
@@ -127,18 +127,22 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
       header = '',
       content = this.readFileAsString(path.join(this.sourceRoot(), 'main.scss'));
 
+  if (this.cssFramework === 'SASSBootstrap' || this.cssFramework === 'NativeBootstrap') {
+      content += this.readFileAsString(path.join(this.sourceRoot(), 'bootstrap.css'));
+  }
+
   switch(this.cssFramework) {
     case 'CompassFramework':
       header += "@import 'compass';\n" + 
         "@import 'compass/reset';\n";
       break;
     case 'SASSBootstrap':
-      header += "@import '../bower_components/sass-bootstrap/lib/bootstrap';\n" +
-          "$icon-font-path: '../bower_components/sass-bootstrap/fonts/';\n";
+      header += "$icon-font-path: '../bower_components/sass-bootstrap/fonts/';\n" +
+          "@import '../bower_components/sass-bootstrap/lib/bootstrap';\n";
       break;
   }
   if (this.cssFramework !== 'NativeBootstrap') {
-      header = "@import 'custom_mixins.scss';" + header;
+      header += "@import 'custom_mixins.scss';\n";
       this.copy('_custom_mixins.scss', 'app/styles/_custom_mixins.scss');
   }
   this.write('app/styles/' + cssFile, header + content);
