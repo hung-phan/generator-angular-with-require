@@ -10,7 +10,7 @@ define('main', [], function() {
             'controllers': 'controllers/controllers',
             'directives': 'directives/directives',
             'filters': 'filters/filters',
-            'services': 'services/services',
+            'services': 'services/services'
         },
         shim: {
             'angular': {
@@ -25,7 +25,7 @@ define('main', [], function() {
         }
     });
 
-    Window.name = "NG_DEFER_BOOTSTRAP!";
+    Window.name = 'NG_DEFER_BOOTSTRAP!';
 
     requirejs([
         'angular',
