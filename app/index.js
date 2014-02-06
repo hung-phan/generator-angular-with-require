@@ -46,9 +46,6 @@ AngularWithRequireGenerator.prototype.askForCSSFramework = function askForCSSFra
       name: 'SASS Bootstrap',
       value: 'SASSBootstrap'
     }, {
-      name: 'Native Bootstrap',
-      value: 'NativeBootstrap'
-    }, {
       name: 'SASS Compass framework',
       value: 'CompassFramework'
     }]
@@ -124,7 +121,7 @@ AngularWithRequireGenerator.prototype.h5bp = function h5bp() {
 };
 
 AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet() {
-  var cssFile = 'style.' + (this.cssFramework !== 'NativeBootstrap' ? 's' : '') + 'css',
+  var cssFile = 'style.scss',
       header = '',
       content = this.readFileAsString(path.join(this.sourceRoot(), 'main.scss'));
 
