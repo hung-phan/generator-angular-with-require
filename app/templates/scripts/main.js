@@ -3,7 +3,8 @@ define('main', [], function() {
         paths: {
             'angular': '../bower_components/angular/angular',
             'angular-resource': '../bower_components/angular-resource/angular-resource',
-            'angular-route': '../bower_components/angular-route/angular-route',
+            'angular-route': '../bower_components/angular-route/angular-route',<% if (includeUIBootstrap) { %>
+            'ui-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap',<% }%>
             'jquery': '../bower_components/jquery/jquery',<% if (includeUnderscore) { %>
             'underscore': '../bower_components/underscore/underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
             'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
@@ -17,7 +18,9 @@ define('main', [], function() {
                 exports: 'angular'
             },
             'angular-resource': ['angular'],
-            'angular-route': ['angular'],
+            'angular-route': ['angular'],<% if (includeUIBootstrap) { %>
+            'ui-bootstrap': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
+            'bootstrap': ['jquery'],<% } %>
             'controllers': ['angular', 'services'],
             'filters': ['angular'],
             'services': ['angular'],
@@ -31,7 +34,8 @@ define('main', [], function() {
         'angular',
         'jquery',
         'angular-resource',
-        'angular-route',<% if (includeUnderscore) { %> 
+        'angular-route',<% if (includeUIBootstrap) { %>
+        'ui-bootstrap',<% } %><% if (includeUnderscore) { %> 
         'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         'bootstrap',<% } %>
         'services',
@@ -47,7 +51,8 @@ define('main', [], function() {
             var $html = $('html');
             angular.module('webApp', [
                 'ngRoute',
-                'ngResource',
+                'ngResource',<% if (includeUIBootstrap) { %>
+                'ui.bootstrap',<% } %>
                 'webControllers',
                 'webFilters',
                 'webServices',

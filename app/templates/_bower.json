@@ -7,7 +7,7 @@
     "angular": "~1.2.9",
     "angular-resource": "~1.2.9",
     "angular-route": "~1.2.9",<% if (includeUIBootstrap) { %>
-    "angular-ui-bootstrap": "~0.10.0",<% } %>
+    "angular-bootstrap": "~0.10.0",<% } %>
     "jquery": "~2.0.3",
     "requirejs": "~2.1.10",
     "modernizr": "~2.7.1"  
