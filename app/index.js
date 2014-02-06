@@ -43,7 +43,7 @@ AngularWithRequireGenerator.prototype.askForCSSFramework = function askForCSSFra
     name: 'cssFramework',
     message: 'What CSS framework would you like to include?',
     choices: [{
-      name: 'SASS Bootstrap',
+      name: 'SASS Bootstrap with Font-Awesome',
       value: 'SASSBootstrap'
     }, {
       name: 'SASS Compass framework',
