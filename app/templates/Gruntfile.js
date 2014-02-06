@@ -431,8 +431,7 @@ module.exports = function (grunt) {
             server: [ <% if (cssFramework === 'CompassFramework') { %>
                 'compass:server',<% } else if (cssFramework === 'SASSBootstrap') { %>
                 'sass:server',<% } %>
-                'copy:styles',
-                'concat'
+                'copy:styles'
             ],
             test: [
                 'copy:styles'
@@ -456,6 +455,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'concurrent:server',
+            'concat',
             'autoprefixer',
             'connect:livereload',
             'watch'
