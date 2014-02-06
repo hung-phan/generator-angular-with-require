@@ -141,10 +141,8 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
           "@import '../bower_components/font-awesome/scss/font-awesome';\n";
       break;
   }
-  if (this.cssFramework !== 'NativeBootstrap') {
-      header += "@import 'custom_mixins.scss';\n";
-      this.copy('_custom_mixins.scss', 'app/styles/_custom_mixins.scss');
-  }
+  header += "@import 'custom_mixins.scss';\n";
+  this.copy('_custom_mixins.scss', 'app/styles/_custom_mixins.scss');
   this.write('app/styles/' + cssFile, header + content);
 };
 
