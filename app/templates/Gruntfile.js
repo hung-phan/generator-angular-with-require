@@ -364,7 +364,10 @@ module.exports = function (grunt) {
             }
         },
         concat: {
-            dist: {}
+            dist: {
+                src: ['.tmp/styles/{,*/}*.css'],
+                dest: '.tmp/styles/style.css'
+            }
         },
 
         // Copies remaining files to places other tasks can use
@@ -428,7 +431,8 @@ module.exports = function (grunt) {
             server: [ <% if (cssFramework === 'CompassFramework') { %>
                 'compass:server',<% } else if (cssFramework === 'SASSBootstrap') { %>
                 'sass:server',<% } %>
-                'copy:styles'
+                'copy:styles',
+                'concat'
             ],
             test: [
                 'copy:styles'
@@ -500,7 +504,6 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
-        'concat',
         'cssmin',
         'requirejs',
         'copy:afterBuild',
