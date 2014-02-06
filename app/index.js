@@ -136,7 +136,9 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
       break;
     case 'SASSBootstrap':
       header += "$icon-font-path: '../bower_components/sass-bootstrap/fonts/';\n" +
-          "@import '../bower_components/sass-bootstrap/lib/bootstrap';\n";
+          "$fa-font-path: '../bower_components/font-awesome/fonts';\n" +
+          "@import '../bower_components/sass-bootstrap/lib/bootstrap';\n" +
+          "@import '../bower_components/font-awesome/scss/font-awesome';\n";
       break;
   }
   if (this.cssFramework !== 'NativeBootstrap') {

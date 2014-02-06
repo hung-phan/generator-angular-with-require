@@ -2,7 +2,8 @@
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.1",
   "dependencies": {<% if (cssFramework === 'SASSBootstrap') { %>
-    "sass-bootstrap": "~3.0.2",<% } %><% if (includeUnderscore) { %>
+    "sass-bootstrap": "~3.0.2",
+    "font-awesome": "~4.0.3",<% } %><% if (includeUnderscore) { %>
     "underscore": "~1.5.2",<% } %>
     "angular": "~1.2.9",
     "angular-resource": "~1.2.9",
