@@ -84,7 +84,7 @@ module.exports = function (grunt) {
             },<% } else if (cssFramework === 'SASSBootstrap') { %>
             scripts: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['sass:server', 'autoprefixer']
+                tasks: ['sass:server', 'autoprefixer', 'concat']
             },<% } %>
             styles: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
