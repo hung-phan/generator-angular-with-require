@@ -1,4 +1,4 @@
-<% if (cssFramework==='SASSBootstrap' || cssFramework==='NativeBootstrap' ) {%><div class="container">
+<% if (cssFramework==='SASSBootstrap') {%><div class="container">
         <div class="header">
             <ul class="nav nav-pills pull-right">
                 <li class="active"><a href="#">Home</a>
@@ -8,7 +8,7 @@
                 <li><a href="#">Contact</a>
                 </li>
             </ul>
-            <h3 class="text-muted">Angular With Require <i class="fa fa-cog fa-spin"></i></h3>
+            <h3 class="text-muted">Angular With Require <% if (includeFontAwesome) { %><i class="fa fa-cog fa-spin"></i><% } %></h3>
         </div>
 
         <div class="jumbotron">

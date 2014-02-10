@@ -6,9 +6,8 @@
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.0",<% if (cssFramework === 'CompassFramework') { %>
-    "grunt-contrib-compass": "~0.7.0",<% } else if (cssFramework === 'SASSBootstrap') { %>
-    "grunt-contrib-sass": "~0.6.0",<% } %>
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-compass": "~0.7.0",
     "grunt-contrib-jshint": "~0.7.0",
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-contrib-connect": "~0.5.0",
