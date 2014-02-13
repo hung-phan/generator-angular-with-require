@@ -44,13 +44,13 @@ define('main', [], function() {
         'filters',
         'directives',
         'controllers'
-    ], function(angular, $) {
+    ], function(angular) {
         'use strict';
 
         /* App Module */
-        $(document).ready(function() {
+        angular.element(document).ready(function () {
             // smart works go here
-            var $html = $('html');
+            var $html = angular.element('html');
             angular.module('webApp', [
                 'ngRoute',
                 'ngResource',<% if (includeUIBootstrap) { %>
