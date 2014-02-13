@@ -4,7 +4,8 @@ define('main', [], function() {
             'angular': '../bower_components/angular/angular',
             'angular-resource': '../bower_components/angular-resource/angular-resource',
             'angular-route': '../bower_components/angular-route/angular-route',<% if (includeUIBootstrap) { %>
-            'ui-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap',<% }%>
+            'ui-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap',<% }%><% if (includeModernizr) { %>
+            'modernizr': '../bower_components/modernizr/modernizr',<% } %>
             'jquery': '../bower_components/jquery/jquery',<% if (includeUnderscore) { %>
             'underscore': '../bower_components/underscore/underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
             'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
@@ -37,7 +38,8 @@ define('main', [], function() {
         'angular-route',<% if (includeUIBootstrap) { %>
         'ui-bootstrap',<% } %><% if (includeUnderscore) { %> 
         'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
-        'bootstrap',<% } %>
+        'bootstrap',<% } %><% if (includeModernizr) { %>
+        'modernizr',<% } %>
         'services',
         'filters',
         'directives',
