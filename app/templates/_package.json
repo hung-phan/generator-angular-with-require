@@ -13,6 +13,17 @@
     "grunt-contrib-connect": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-htmlmin": "*",<% if (testFramework === 'jasmine') { %>
+    "requirejs": "*",
+    "karma-script-launcher": "*",
+    "karma-chrome-launcher": "*",
+    "karma-firefox-launcher": "*",
+    "karma-html2js-preprocessor": "*",
+    "karma-jasmine": "*",
+    "karma-requirejs": "*",
+    "karma-coffee-preprocessor": "*",
+    "karma-phantomjs-launcher": "*",
+    "karma": "*",
+    "grunt-karma": "*"
     "grunt-contrib-jasmine": "*",<% } %>
     "grunt-bower-install": "*",
     "grunt-contrib-imagemin": "*",
