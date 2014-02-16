@@ -18,7 +18,10 @@ define('main', [], function() {
         shim: {
             'angular': {
                 exports: 'angular'
-            },
+            },<% if (includeUnderscore) { %>
+            'underscore': {
+                exports: '_'
+            }, <% } %>
             'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
             'angular-animate': ['angular'],<% } %>
             'angular-route': ['angular'],<% if (includeUIBootstrap) { %>

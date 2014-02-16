@@ -168,7 +168,7 @@ module.exports = function (grunt) {
         // Jasmine testing framework configuration options
         jasmine: {
             pivotal: {
-                src: '<%%= yeoman.app %>/js/**/*.js',
+                src: '<%%= yeoman.app %>/scripts/**/*.js',
                 options: {
                     specs: 'test/spec/*Spec.js',
                     helpers: 'test/spec/*Helper.js'
