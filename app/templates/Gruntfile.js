@@ -75,6 +75,10 @@ module.exports = function (grunt) {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['test:watch']
             },
+            karma: {
+                files: ['app/scripts/**/*.js', 'test/**/*.js'],
+                tasks: ['karma:unit'] //NOTE the :run flag
+            },
             gruntfile: {
                 files: ['Gruntfile.js']
             },
@@ -165,6 +169,13 @@ module.exports = function (grunt) {
             }
         },
 <% if (testFramework === 'jasmine') { %>
+        // karma testing
+        karma: {
+          unit: {
+            configFile: 'config/karma.conf.js'
+          }
+        },
+
         // Jasmine testing framework configuration options
         jasmine: {
             pivotal: {

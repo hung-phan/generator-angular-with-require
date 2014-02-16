@@ -215,7 +215,11 @@ AngularWithRequireGenerator.prototype.app = function app() {
   this.mkdir('app/partials');
   this.mkdir('app/scripts/vendor');
   this.mkdir('config');
-  this.mkdir('test');
+};
+
+AngularWithRequireGenerator.prototype.testFile = function testFile() {
+  this.copy('karma.conf.js', 'config/karma.conf.js');
+  this.directory('test', 'test');
 };
 
 AngularWithRequireGenerator.prototype.install = function install() {
