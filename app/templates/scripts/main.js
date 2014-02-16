@@ -2,11 +2,12 @@ define('main', [], function() {
     requirejs.config({
         paths: {
             'angular': '../bower_components/angular/angular',
-            'angular-resource': '../bower_components/angular-resource/angular-resource',
+            'angular-resource': '../bower_components/angular-resource/angular-resource',<% if (includeAngularAnimate) { %>
+            'angular-animate': '../bower_components/angular-animate/angular-animate', <% } %>
             'angular-route': '../bower_components/angular-route/angular-route',<% if (includeUIBootstrap) { %>
             'ui-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap',<% }%><% if (includeModernizr) { %>
             'modernizr': '../bower_components/modernizr/modernizr',<% } %>
-            'jquery': '../bower_components/jquery/jquery',<% if (includeUnderscore) { %>
+            'jquery': '../bower_components/jquery/dist/jquery',<% if (includeUnderscore) { %>
             'underscore': '../bower_components/underscore/underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
             'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
             'controllers': 'controllers/controllers',
@@ -18,7 +19,8 @@ define('main', [], function() {
             'angular': {
                 exports: 'angular'
             },
-            'angular-resource': ['angular'],
+            'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
+            'angular-animate': ['angular'],<% } %>
             'angular-route': ['angular'],<% if (includeUIBootstrap) { %>
             'ui-bootstrap': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
             'bootstrap': ['jquery'],<% } %>
@@ -34,7 +36,8 @@ define('main', [], function() {
     requirejs([
         'angular',
         'jquery',
-        'angular-resource',
+        'angular-resource',<% if (includeAngularAnimate) { %>
+        'angular-animate', <% } %>
         'angular-route',<% if (includeUIBootstrap) { %>
         'ui-bootstrap',<% } %><% if (includeUnderscore) { %> 
         'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
@@ -54,7 +57,8 @@ define('main', [], function() {
             angular.module('webApp', [
                 'ngRoute',
                 'ngResource',<% if (includeUIBootstrap) { %>
-                'ui.bootstrap',<% } %>
+                'ui.bootstrap',<% } %><% if (includeAngularAnimate) { %>
+                'ngAnimate', <% } %>
                 'webControllers',
                 'webFilters',
                 'webServices',

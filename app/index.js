@@ -107,6 +107,10 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
       value: 'includeUIBootstrap',
       checked: false
     }, {
+      name: 'Angular animate',
+      value: 'includeAngularAnimate',
+      checked: false
+    }, {
       name: 'Jasmine Testing framework',
       value: 'includeJasmine',
       checked: true
@@ -123,6 +127,7 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
     // JS
     this.includeUnderscore = includeJS('includeUnderscore');
     this.includeUIBootstrap = includeJS('includeUIBootstrap');
+    this.includeAngularAnimate = includeJS('includeAngularAnimate');
     this.includeJasmine = includeJS('includeJasmine');
     this.includeModernizr = includeJS('includeModernizr');
 
