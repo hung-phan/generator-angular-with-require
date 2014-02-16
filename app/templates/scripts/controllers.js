@@ -1,7 +1,7 @@
 define([
     'angular',
-    'jquery'
-], function(angular, $) {
+    'services'
+], function(angular) {
     'use strict';
 
     /* Controllers */
