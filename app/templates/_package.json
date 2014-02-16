@@ -23,7 +23,7 @@
     "karma-coffee-preprocessor": "*",
     "karma-phantomjs-launcher": "*",
     "karma": "*",
-    "grunt-karma": "*"
+    "grunt-karma": "*",
     "grunt-contrib-jasmine": "*",<% } %>
     "grunt-bower-install": "*",
     "grunt-contrib-imagemin": "*",
