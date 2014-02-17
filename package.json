@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-with-require",
-  "version": "0.0.0",
+  "version": "0.2.2",
   "description": "A generator for Yeoman",
   "keywords": [
     "yeoman-generator"
@@ -8,8 +8,8 @@
   "homepage": "https://github.com/hung-phan/generator-angular-with-require",
   "bugs": "https://github.com/hung-phan/generator-angular-with-require/issues",
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Phan Quang Hung",
+    "email": "colorvisavn@gmail.com",
     "url": "https://github.com/hung-phan"
   },
   "main": "app/index.js",

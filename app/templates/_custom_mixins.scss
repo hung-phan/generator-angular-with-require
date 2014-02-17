@@ -77,3 +77,8 @@ $width-large:  1200px;
   /* W3C */
   background-image: linear-gradient($from, $to);
 }
+@mixin text-highlight-selection($background, $color) {
+    ::selection { background: $background; color: $color; text-shadow: none; }
+    ::-webkit-selection{ background: $background; color: $color; text-shadow: none; }
+    ::-moz-selection{ background: $background; color: $color; text-shadow: none; }
+} 
