@@ -1,6 +1,6 @@
-describe('should do sth useful than this', function() {
+describe('frontpage', function() {
     var ptor = protractor.getInstance();
-    it('should have class plain', function() {
+    it('should get the title', function() {
         ptor.get('/#');
         expect(ptor.getTitle()).toBe('generator-angular-with-require');
     });
