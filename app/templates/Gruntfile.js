@@ -106,6 +106,14 @@ module.exports = function(grunt) {
             }
         },
 
+        shell: { // Task
+            protractor: { // Target
+                options: { // Options
+                    stdout: true
+                },
+                command: 'protractor config/e2e.conf.js'
+            }
+        },
         // Empties folders to start fresh
         clean: {
             dist: {
