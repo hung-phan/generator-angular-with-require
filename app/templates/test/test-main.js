@@ -1,7 +1,7 @@
 var tests = [];
 for (var file in window.__karma__.files) {
     if (window.__karma__.files.hasOwnProperty(file)) {
-        if (/Spec\.js$/.test(file)) {
+        if (/test\/specs\/\w*Spec\.js$/.test(file)) {
             tests.push(file);
         }
     }
@@ -11,9 +11,9 @@ requirejs.config({
     baseUrl: 'base/app/scripts',
     paths: {
         'angular': '../bower_components/angular/angular',
-        'angular-resource': '../bower_components/angular-resource/angular-resource',
-        'angular-route': '../bower_components/angular-route/angular-route',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
+        'angular-resource': '../bower_components/angular-resource/angular-resource',
+        'loading-helper': '../../test/helpers/loadingHelper',
         'controllers': 'controllers/controllers',
         'directives': 'directives/directives',
         'filters': 'filters/filters',
@@ -24,9 +24,7 @@ requirejs.config({
             exports: 'angular'
         },
         'angular-resource': ['angular'],
-        'angular-route': ['angular'],
         'angular-mocks': ['angular'],
-        'bootstrap': ['jquery'],
         'controllers': ['angular', 'services'],
         'filters': ['angular'],
         'services': ['angular'],
