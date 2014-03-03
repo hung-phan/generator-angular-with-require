@@ -8,7 +8,7 @@ define([
 
     angular.module('webControllers', [
         'webServices'
-    ]).controller('Home', [
+    ]).controller('HomePageController', [
         '$scope',
         '$location',
         function($scope, $location) {

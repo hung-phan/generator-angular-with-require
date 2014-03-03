@@ -4,7 +4,7 @@ define('main', [], function() {
             'angular': '../bower_components/angular/angular',
             'angular-resource': '../bower_components/angular-resource/angular-resource',<% if (includeAngularAnimate) { %>
             'angular-animate': '../bower_components/angular-animate/angular-animate', <% } %>
-            'angular-route': '../bower_components/angular-route/angular-route',<% if (includeUIBootstrap) { %>
+            'angular-ui-route': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeUIBootstrap) { %>
             'ui-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap',<% }%><% if (includeModernizr) { %>
             'modernizr': '../bower_components/modernizr/modernizr',<% } %>
             'jquery': '../bower_components/jquery/dist/jquery',<% if (includeUnderscore) { %>
@@ -24,7 +24,7 @@ define('main', [], function() {
             }, <% } %>
             'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
             'angular-animate': ['angular'],<% } %>
-            'angular-route': ['angular'],<% if (includeUIBootstrap) { %>
+            'angular-ui-route': ['angular'],<% if (includeUIBootstrap) { %>
             'ui-bootstrap': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
             'bootstrap': ['jquery'],<% } %>
             'controllers': ['angular', 'services'],
@@ -41,8 +41,8 @@ define('main', [], function() {
         'jquery',
         'angular-resource',<% if (includeAngularAnimate) { %>
         'angular-animate', <% } %>
-        'angular-route',<% if (includeUIBootstrap) { %>
-        'ui-bootstrap',<% } %><% if (includeUnderscore) { %> 
+        'angular-ui-route',<% if (includeUIBootstrap) { %>
+        'ui-bootstrap',<% } %><% if (includeUnderscore) { %>
         'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         'bootstrap',<% } %><% if (includeModernizr) { %>
         'modernizr',<% } %>
@@ -58,7 +58,7 @@ define('main', [], function() {
             // smart works go here
             var $html = angular.element('html');
             angular.module('webApp', [
-                'ngRoute',
+                'ui.router',
                 'ngResource',<% if (includeUIBootstrap) { %>
                 'ui.bootstrap',<% } %><% if (includeAngularAnimate) { %>
                 'ngAnimate', <% } %>
@@ -66,19 +66,16 @@ define('main', [], function() {
                 'webFilters',
                 'webServices',
                 'webDirectives'
-            ]).config(['$routeProvider', '$interpolateProvider',
-                function($routeProvider, $interpolateProvider) {
-                    $routeProvider.
-                    when('/', {
-                        templateUrl: 'partials/home.html',
-                        controller: 'Home'
-                    }).
-                    when('/404', {
-                        templateUrl: '404.html'
-                    }).
-                    otherwise({
-                        redirectTo: '/404'
-                    });
+            ]).config(['$stateProvider', '$urlRouterProvider', '$interpolateProvider',
+                function($stateProvider, $urlRouterProvider, $interpolateProvider) {
+                    $stateProvider
+                        .state('home', {
+                            url: '/',
+                            templateUrl: 'partials/home-page.html',
+                            controller: 'HomePageController'
+                        });
+
+                    $urlRouterProvider.otherwise('/');
                     /* change configure to use [[ to be the interpolation */
                     $interpolateProvider.startSymbol('[[');
                     $interpolateProvider.endSymbol(']]');

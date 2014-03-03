@@ -161,7 +161,7 @@ AngularWithRequireGenerator.prototype.h5bp = function h5bp() {
   this.copy('robots.txt', 'app/robots.txt');
   this.copy('htaccess', 'app/.htaccess');
   this.template('index.html', 'app/index.html');
-  this.template('partials/home.html', 'app/partials/home.html');
+  this.template('partials/home-page.html', 'app/partials/home-page.html');
 };
 
 AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet() {
