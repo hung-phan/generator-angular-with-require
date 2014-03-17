@@ -66,7 +66,7 @@ define('main', [], function() {
                 'webFilters',
                 'webServices',
                 'webDirectives'
-            ]).config(['$stateProvider', '$urlRouterProvider', '$interpolateProvider',
+            ]).config(['$stateProvider', '$urlRouterProvider', '$interpolateProvider', '$provide', 
                 function($stateProvider, $urlRouterProvider, $interpolateProvider) {
                     $stateProvider
                         .state('home', {
@@ -79,6 +79,24 @@ define('main', [], function() {
                     /* change configure to use [[ to be the interpolation */
                     $interpolateProvider.startSymbol('[[');
                     $interpolateProvider.endSymbol(']]');
+                    /* add safeApply function for $rootScope - called by $scope.$root.safeApply(fn) */
+                    $provide.decorator('$rootScope', [
+                        '$delegate',
+                        function($delegate) {
+                            $delegate.safeApply = function(fn) {
+                                var phase = $delegate.$$phase;
+                                if (phase === "$apply" || phase === "$digest") {
+                                    if (fn && typeof fn === 'function') {
+                                        fn();
+                                    }
+                                } else {
+                                    $delegate.$apply(fn);
+                                }
+                            };
+                            return $delegate;
+                        }
+                    ]);
+
                 }
             ]);
             // bootstrap model
