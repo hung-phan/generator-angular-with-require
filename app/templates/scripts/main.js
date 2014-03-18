@@ -4,7 +4,8 @@ define('main', [], function() {
             'angular': '../bower_components/angular/angular',
             'angular-resource': '../bower_components/angular-resource/angular-resource',<% if (includeAngularAnimate) { %>
             'angular-animate': '../bower_components/angular-animate/angular-animate', <% } %>
-            'angular-ui-route': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeUIBootstrap) { %>
+            'angular-ui-route': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeBindonce) { %>
+            'bindonce': '../bower_components/angular-bindonce/bindonce',<% } %><% if (includeUIBootstrap) { %>
             'ui-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap',<% }%><% if (includeModernizr) { %>
             'modernizr': '../bower_components/modernizr/modernizr',<% } %>
             'jquery': '../bower_components/jquery/dist/jquery',<% if (includeUnderscore) { %>
@@ -24,7 +25,8 @@ define('main', [], function() {
             }, <% } %>
             'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
             'angular-animate': ['angular'],<% } %>
-            'angular-ui-route': ['angular'],<% if (includeUIBootstrap) { %>
+            'angular-ui-route': ['angular'],<% if (includeBindonce) { %>
+            'bindonce': ['angular'], <% } %><% if (includeUIBootstrap) { %>
             'ui-bootstrap': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
             'bootstrap': ['jquery'],<% } %>
             'controllers': ['angular', 'services'],
@@ -41,7 +43,8 @@ define('main', [], function() {
         'jquery',
         'angular-resource',<% if (includeAngularAnimate) { %>
         'angular-animate', <% } %>
-        'angular-ui-route',<% if (includeUIBootstrap) { %>
+        'angular-ui-route',<% if (includeBindonce) { %>
+        'bindonce',<% } %><% if (includeUIBootstrap) { %>
         'ui-bootstrap',<% } %><% if (includeUnderscore) { %>
         'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         'bootstrap',<% } %><% if (includeModernizr) { %>
@@ -61,7 +64,8 @@ define('main', [], function() {
                 'ui.router',
                 'ngResource',<% if (includeUIBootstrap) { %>
                 'ui.bootstrap',<% } %><% if (includeAngularAnimate) { %>
-                'ngAnimate', <% } %>
+                'ngAnimate', <% } %><% if (includeBindonce) { %>
+                'pasvaz.bindonce',<% } %>
                 'webControllers',
                 'webFilters',
                 'webServices',

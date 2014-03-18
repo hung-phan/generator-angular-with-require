@@ -111,13 +111,17 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
       value: 'includeAngularAnimate',
       checked: false
     }, {
+      name: 'Bindonce by Pasvaz (high performance binding for angular',
+      value: 'includeBindonce',
+      checked: false
+    }, {
       name: 'Jasmine Testing framework',
       value: 'includeJasmine',
       checked: true
     }, {
       name: 'Modernizr',
       value: 'includeModernizr',
-      checked: false
+      checked: true
     }]
   }];
 
@@ -128,6 +132,7 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
     this.includeUnderscore = includeJS('includeUnderscore');
     this.includeUIBootstrap = includeJS('includeUIBootstrap');
     this.includeAngularAnimate = includeJS('includeAngularAnimate');
+    this.includeBindonce = includeJS('includeBindonce');
     this.includeJasmine = includeJS('includeJasmine');
     this.includeModernizr = includeJS('includeModernizr');
 
