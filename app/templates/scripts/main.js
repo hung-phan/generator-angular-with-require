@@ -18,7 +18,8 @@ define('main', [], function() {
         },
         shim: {
             'angular': {
-                exports: 'angular'
+                exports: 'angular',
+                deps: ['jquery']
             },<% if (includeUnderscore) { %>
             'underscore': {
                 exports: '_'
