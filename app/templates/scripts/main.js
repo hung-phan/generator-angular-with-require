@@ -67,7 +67,7 @@ define('main', [], function() {
                 'webServices',
                 'webDirectives'
             ]).config(['$stateProvider', '$urlRouterProvider', '$interpolateProvider', '$provide', 
-                function($stateProvider, $urlRouterProvider, $interpolateProvider) {
+                function($stateProvider, $urlRouterProvider, $interpolateProvider, $provide) {
                     $stateProvider
                         .state('home', {
                             url: '/',
@@ -96,7 +96,6 @@ define('main', [], function() {
                             return $delegate;
                         }
                     ]);
-
                 }
             ]);
             // bootstrap model
