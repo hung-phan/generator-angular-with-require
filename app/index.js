@@ -111,7 +111,7 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
       value: 'includeAngularAnimate',
       checked: false
     }, {
-      name: 'Bindonce by Pasvaz (high performance binding for angular',
+      name: 'Bindonce by Pasvaz (high performance binding for angular)',
       value: 'includeBindonce',
       checked: false
     }, {
