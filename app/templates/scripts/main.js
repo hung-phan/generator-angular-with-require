@@ -6,7 +6,7 @@ define('main', [], function() {
             'angular-animate': '../bower_components/angular-animate/angular-animate', <% } %>
             'angular-ui-route': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeBindonce) { %>
             'bindonce': '../bower_components/angular-bindonce/bindonce',<% } %><% if (includeUIBootstrap) { %>
-            'ui-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap',<% }%><% if (includeModernizr) { %>
+            'ui-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',<% }%><% if (includeModernizr) { %>
             'modernizr': '../bower_components/modernizr/modernizr',<% } %>
             'jquery': '../bower_components/jquery/dist/jquery',<% if (includeUnderscore) { %>
             'underscore': '../bower_components/underscore/underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
@@ -28,7 +28,7 @@ define('main', [], function() {
             'angular-animate': ['angular'],<% } %>
             'angular-ui-route': ['angular'],<% if (includeBindonce) { %>
             'bindonce': ['angular'], <% } %><% if (includeUIBootstrap) { %>
-            'ui-bootstrap': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
+            'ui-bootstrap-tpls': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
             'bootstrap': ['jquery'],<% } %>
             'controllers': ['angular', 'services'],
             'filters': ['angular'],
@@ -46,7 +46,7 @@ define('main', [], function() {
         'angular-animate', <% } %>
         'angular-ui-route',<% if (includeBindonce) { %>
         'bindonce',<% } %><% if (includeUIBootstrap) { %>
-        'ui-bootstrap',<% } %><% if (includeUnderscore) { %>
+        'ui-bootstrap-tpls',<% } %><% if (includeUnderscore) { %>
         'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         'bootstrap',<% } %><% if (includeModernizr) { %>
         'modernizr',<% } %>
