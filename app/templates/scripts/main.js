@@ -4,7 +4,7 @@ define('main', [], function() {
             'angular': '../bower_components/angular/angular',
             'angular-resource': '../bower_components/angular-resource/angular-resource',<% if (includeAngularAnimate) { %>
             'angular-animate': '../bower_components/angular-animate/angular-animate', <% } %>
-            'angular-ui-route': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeBindonce) { %>
+            'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeBindonce) { %>
             'bindonce': '../bower_components/angular-bindonce/bindonce',<% } %><% if (includeUIBootstrap) { %>
             'ui-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',<% }%><% if (includeModernizr) { %>
             'modernizr': '../bower_components/modernizr/modernizr',<% } %>
@@ -26,7 +26,7 @@ define('main', [], function() {
             }, <% } %>
             'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
             'angular-animate': ['angular'],<% } %>
-            'angular-ui-route': ['angular'],<% if (includeBindonce) { %>
+            'angular-ui-router': ['angular'],<% if (includeBindonce) { %>
             'bindonce': ['angular'], <% } %><% if (includeUIBootstrap) { %>
             'ui-bootstrap-tpls': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
             'bootstrap': ['jquery'],<% } %>
@@ -44,7 +44,7 @@ define('main', [], function() {
         'jquery',
         'angular-resource',<% if (includeAngularAnimate) { %>
         'angular-animate', <% } %>
-        'angular-ui-route',<% if (includeBindonce) { %>
+        'angular-ui-router',<% if (includeBindonce) { %>
         'bindonce',<% } %><% if (includeUIBootstrap) { %>
         'ui-bootstrap-tpls',<% } %><% if (includeUnderscore) { %>
         'underscore',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
