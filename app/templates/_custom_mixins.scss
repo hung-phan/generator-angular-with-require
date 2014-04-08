@@ -1,7 +1,7 @@
 $width-small:  400px;
 $width-medium: 760px;
 $width-large:  1200px;
- 
+
 @mixin custom-responsive($width) {
   @if $width == wide-screens {
     @media only screen and (max-width: $width-large) { @content; }
@@ -18,7 +18,7 @@ $width-large:  1200px;
 
 @mixin custom-retinize($file, $type, $width, $height) {
   background-image: url('../images/' + $file + '.' + $type);
- 
+
   @media (-webkit-min-device-pixel-ratio: 1.5),
          (min--moz-device-pixel-ratio: 1.5),
          (-o-min-device-pixel-ratio: 3/2),
@@ -35,20 +35,29 @@ $width-large:  1200px;
 
 // how to use @include retinize('icon-dribbble', 'png', 24px, 24px);
 
+@mixin custom-background-body($file, $type) {
+    background: url('../images/' + $file + '.' + $type) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+// how to use @include retinize('icon-dribbble', 'png', 24px, 24px);
 @mixin custom-rounded($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
           border-radius: $radius;
 }
-@mixin custom-shadow($x, $y, $blur, $color) {
-  -webkit-box-shadow: $x $y $blur $color;
-     -moz-box-shadow: $x $y $blur $color;
-          box-shadow: $x $y $blur $color;
+@mixin custom-shadow($x, $y, $z, $blur, $color) {
+  -webkit-box-shadow: $x $y $z $blur $color;
+     -moz-box-shadow: $x $y $z $blur $color;
+          box-shadow: $x $y $z $blur $color;
 }
-@mixin custom-shadow-inset($x, $y, $blur, $color) {
-  -webkit-box-shadow: inset $x $y $blur $color;
-     -moz-box-shadow: inset $x $y $blur $color;
-          box-shadow: inset $x $y $blur $color;
+@mixin custom-shadow-inset($x, $y, $z, $blur, $color) {
+  -webkit-box-shadow: inset $x $y $z $blur $color;
+     -moz-box-shadow: inset $x $y $z $blur $color;
+          box-shadow: inset $x $y $z $blur $color;
 }
 @mixin custom-transition($property) {
   -webkit-transition: $property .2s ease;
@@ -81,4 +90,4 @@ $width-large:  1200px;
     ::selection { background: $background; color: $color; text-shadow: none; }
     ::-webkit-selection{ background: $background; color: $color; text-shadow: none; }
     ::-moz-selection{ background: $background; color: $color; text-shadow: none; }
-} 
+}
