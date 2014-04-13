@@ -71,7 +71,7 @@ define('main', [], function() {
                 'webFilters',
                 'webServices',
                 'webDirectives'
-            ]).config(['$stateProvider', '$urlRouterProvider', '$interpolateProvider', '$provide', 
+            ]).config(['$stateProvider', '$urlRouterProvider', '$interpolateProvider', '$provide',
                 function($stateProvider, $urlRouterProvider, $interpolateProvider, $provide) {
                     $stateProvider
                         .state('home', {
@@ -90,7 +90,7 @@ define('main', [], function() {
                         function($delegate) {
                             $delegate.safeApply = function(fn) {
                                 var phase = $delegate.$$phase;
-                                if (phase === "$apply" || phase === "$digest") {
+                                if (phase === '$apply' || phase === '$digest') {
                                     if (fn && typeof fn === 'function') {
                                         fn();
                                     }
