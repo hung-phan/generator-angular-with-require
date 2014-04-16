@@ -13,7 +13,10 @@ describe('angular-with-require generator', function () {
             }
 
             this.app = helpers.createGenerator('angular-with-require:app', [
-                '../../app'
+                '../../app', [
+                  helpers.createDummyGenerator(),
+                  'mocha:app'
+                ]
             ]);
             done();
         }.bind(this));
@@ -27,7 +30,8 @@ describe('angular-with-require generator', function () {
         ];
 
         helpers.mockPrompt(this.app, {
-            'someOption': true
+            cssFile: ['includeFontAwesome'],
+            jsFile: ['includeJasmine', 'includeModernizr']
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {
