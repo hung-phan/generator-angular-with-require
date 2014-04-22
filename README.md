@@ -42,6 +42,11 @@ $ grunt serve
 ```
 It will automatically open the webpage on your localhost:9000, or you will have to do it manuallly
 
+To run test
+```
+$ grunt karma:unit:start
+```
+
 To build files for production
 ```
 $ grunt build
