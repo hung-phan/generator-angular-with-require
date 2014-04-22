@@ -208,6 +208,7 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
 AngularWithRequireGenerator.prototype.jsFile = function jsFile() {
   var prefix = 'app/scripts';
   this.mkdir(prefix);
+  this.copy('scripts/config.js', prefix + '/config.js');
   this.copy('scripts/main.js', prefix + '/main.js');
   this.copy('scripts/controllers.js', prefix + '/controllers/controllers.js');
   this.copy('scripts/directives.js', prefix + '/directives/directives.js');
