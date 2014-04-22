@@ -24,9 +24,10 @@ $ yo angular-with-require
 ```
 
 Other dependencies
-1. [Phantom.js] (http://phantomjs.org/) - You can change this in the config/karma.config.js
-2. [Bower] (http://bower.io/)
-3. [Grunt] (http://gruntjs.com/)
+
+⋅⋅1. [Phantom.js] (http://phantomjs.org/) - You can change this in the config/karma.config.js
+⋅⋅2. [Bower] (http://bower.io/)
+⋅⋅3. [Grunt] (http://gruntjs.com/)
 
 ## Usage
 
