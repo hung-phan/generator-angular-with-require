@@ -25,7 +25,7 @@ $ yo angular-with-require
 
 Other dependencies
 
-1. [Phantom.js] (http://phantomjs.org/) - You can change this in the config/karma.config.js
+1. [Phantom.js] (http://phantomjs.org/) - You can change this in the config/karma.config.js by changing browsers tag
 
 2. [Bower] (http://bower.io/)
 
