@@ -7,7 +7,7 @@ for (var file in window.__karma__.files) {
     }
 }
 requirejs.config({
-    // Karma serves files from '/app'
+    /*Karma serves files from '/app'*/
     baseUrl: 'base/app/scripts',
     paths: {
         'angular': '../bower_components/angular/angular',

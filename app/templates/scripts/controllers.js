@@ -5,7 +5,6 @@ define([
     'use strict';
 
     /* Controllers */
-
     angular.module('webControllers', [
         'webServices'
     ]).controller('HomePageController', [

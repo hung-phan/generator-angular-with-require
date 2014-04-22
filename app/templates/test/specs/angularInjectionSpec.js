@@ -1,5 +1,5 @@
 define(['loading-helper'], function() {
-    describe('angular template testing', function() {
+    describe('angular template binding', function() {
         var element;
         var $scope;
         beforeEach(module('webApp'));
@@ -9,9 +9,9 @@ define(['loading-helper'], function() {
             element = $compile(element)($scope);
         }));
 
-        it('should do something useful', function() {
+        it('should be equal 4', function() {
             $scope.$digest();
-            expect(element.html()).toBe("4");
+            expect(element.html()).toBe('4');
         });
     });
 });

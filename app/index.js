@@ -99,8 +99,8 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
     name: 'jsFile',
     message: 'What js library would you like to include?',
     choices: [{
-      name: 'Underscore.js',
-      value: 'includeUnderscore',
+      name: 'Lodash.js',
+      value: 'includeLodash',
       checked: false
     }, {
       name: 'Angular UI-Bootstrap',
@@ -129,7 +129,7 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
     function includeJS(js) { return props.jsFile.indexOf(js) !== -1; }
 
     // JS
-    this.includeUnderscore = includeJS('includeUnderscore');
+    this.includeLodash = includeJS('includeLodash');
     this.includeUIBootstrap = includeJS('includeUIBootstrap');
     this.includeAngularAnimate = includeJS('includeAngularAnimate');
     this.includeBindonce = includeJS('includeBindonce');

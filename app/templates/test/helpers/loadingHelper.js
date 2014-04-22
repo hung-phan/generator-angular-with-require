@@ -7,6 +7,9 @@ define([
     'directives',
     'angular-mocks'
 ], function(angular) {
+    'use strict';
+
+    /*this is responsible for loading dependencies for testing model, and controller*/
     angular.module('webApp', [
         'ngResource',
         'webControllers',

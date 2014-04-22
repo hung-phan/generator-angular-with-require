@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "dependencies": {<% if (cssFramework === 'SASSBootstrap') { %>
     "sass-bootstrap": "*",<% } %><% if (includeFontAwesome) { %>
-    "font-awesome": "*",<% } %><% if (includeUnderscore) { %>
-    "underscore": "*",<% } %>
+    "font-awesome": "*",<% } %><% if (includeLodash) { %>
+    "lodash": "*",<% } %>
     "angular": "*",
     "angular-resource": "*",
     "angular-mocks": "*",<% if (includeBindonce) { %>

@@ -75,10 +75,11 @@ module.exports = function(grunt) {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['test:watch']
             },
-            karma: {
-                files: ['app/scripts/**/*.js', 'test/**/*.js'],
-                tasks: ['karma:unit'] //NOTE the :run flag
-            },
+            /*uncomment this, if you want to run karma testing everytime the scripts are changing*/
+            //karma: {
+                //files: ['app/scripts/**/*.js', 'test/**/*.js'],
+                //tasks: ['karma:unit']
+            //},
             gruntfile: {
                 files: ['Gruntfile.js']
             },
@@ -86,10 +87,6 @@ module.exports = function(grunt) {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer', 'concat']
             },
-            //scripts: {
-            //files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-            //tasks: ['sass:server', 'autoprefixer', 'concat']
-            //},
             styles: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
                 tasks: ['newer:copy:styles', 'autoprefixer']
@@ -152,7 +149,7 @@ module.exports = function(grunt) {
             ]
         },
 
-        // Require js config
+        // bundle script for bower_components into app/scripts/main.js
         bower: {
             target: {
                 rjsConfig: '<%%= yeoman.app %>/scripts/main.js'
@@ -236,35 +233,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-        /*
-        sass: {
-            dist: {
-                 options: {
-                    style: 'compressed'
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%%= yeoman.app %>/styles',
-                    src: ['*.scss'],
-                    dest: '.tmp/styles',
-                    ext: '.css'
-                }]
-            },
-            server: {
-                options: {
-                    debugInfo: true,
-                    style: 'expanded'
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%%= yeoman.app %>/styles',
-                    src: ['*.scss'],
-                    dest: '.tmp/styles',
-                    ext: '.css'
-                }]
-            }
-        },
-        */
+
         // Add vendor prefixed styles
         autoprefixer: {
             options: {
@@ -478,7 +447,6 @@ module.exports = function(grunt) {
             ]
         }
     });
-    grunt.registerTask('bundle-js', ['bower']);
 
     grunt.registerTask('serve', function(target) {
         if (target === 'dist') {
@@ -510,16 +478,14 @@ module.exports = function(grunt) {
         }
 
         grunt.task.run([
-            'connect:test', <%
-            if (testFramework === 'mocha') { %>
-                    'mocha' <%
-            } else if (testFramework === 'jasmine') { %>
-                    'jasmine' <%
-            } %>
+            'connect:test', <% if (testFramework === 'mocha') { %>
+            'mocha' <% } else if (testFramework === 'jasmine') { %>
+            'jasmine' <% } %>
         ]);
     });
 
     grunt.registerTask('requirejs-bundle', function() {
+        /*replace bower_components path in app/scripts/main.js file to vendor/*/
         function replaceBetween(string, start, end, what) {
             return string.substring(0, start) + what + string.substring(end);
         };
