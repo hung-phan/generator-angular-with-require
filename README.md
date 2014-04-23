@@ -31,6 +31,8 @@ Other dependencies
 
 3. [Grunt] (http://gruntjs.com/)
 
+4. Compass (gem install compass)
+
 ## Usage
 
 The version of generator uses SASS Bootstrap as its main theme. If you want to use Compass framework, make sure that you
