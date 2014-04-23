@@ -170,39 +170,33 @@ module.exports = function(grunt) {
                     useStrict: true
                 }
             }
+        },<% if (testFramework === 'jasmine') { %>
+        // karma testing
+        karma: {
+            unit: {
+                configFile: 'config/karma.conf.js'
+            }
         },
-        <%
-        if (testFramework === 'jasmine') { %>
-            // karma testing
-            karma: {
-                unit: {
-                    configFile: 'config/karma.conf.js'
-                }
-            },
 
-            // Jasmine testing framework configuration options
-            jasmine: {
-                pivotal: {
-                    src: '<%%= yeoman.app %>/scripts/**/*.js',
-                    options: {
-                        specs: 'test/spec/*Spec.js',
-                        helpers: 'test/spec/*Helper.js'
-                    }
+        // Jasmine testing framework configuration options
+        jasmine: {
+            pivotal: {
+                src: '<%%= yeoman.app %>/scripts/**/*.js',
+                options: {
+                    specs: 'test/spec/*Spec.js',
+                    helpers: 'test/spec/*Helper.js'
                 }
-            },
-            <%
-        } else { %>
-            // Mocha tesing framework configuration options
-            mocha: {
-                all: {
-                    options: {
-                        run: true,
-                        urls: ['http://<%%= connect.test.options.hostname %>:<%%= connect.test.options.port %>/index.html']
-                    }
+            }
+        }, <% } else { %>
+        // Mocha tesing framework configuration options
+        mocha: {
+            all: {
+                options: {
+                    run: true,
+                    urls: ['http://<%%= connect.test.options.hostname %>:<%%= connect.test.options.port %>/index.html']
                 }
-            },
-            <%
-        } %>
+            }
+        }, <% } %>
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
@@ -482,8 +476,14 @@ module.exports = function(grunt) {
 
     grunt.registerTask('requirejs-bundle', function() {
         /*replace bower_components path in app/scripts/main.js file to vendor/*/
+        function replaceBetween(string, start, end, what) {
+            return string.substring(0, start) + what + string.substring(end);
+        };
         var indexHTML = grunt.file.read('dist/index.html');
-        grunt.file.write('dist/index.html', indexHTML.replace('scripts/config', 'scripts/main'));
+        indexHTML = replaceBetween(indexHTML,
+            indexHTML.indexOf('<!--build script-->'),
+            indexHTML.indexOf('<!--end build script-->'), '');
+        grunt.file.write('dist/index.html', indexHTML);
     });
 
     grunt.registerTask('build', [
