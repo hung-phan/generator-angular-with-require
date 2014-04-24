@@ -152,7 +152,7 @@ module.exports = function(grunt) {
         // bundle script for bower_components into app/scripts/main.js
         bower: {
             target: {
-                rjsConfig: '<%%= yeoman.app %>/scripts/main.js'
+                rjsConfig: '<%%= yeoman.app %>/scripts/config.js'
             }
         },
 
