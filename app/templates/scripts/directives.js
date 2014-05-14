@@ -8,7 +8,6 @@ define(['angular'], function(angular) {
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: 'partials/paggie.html',
                 scope: {
                     elements: '=',
                     callback: '&'

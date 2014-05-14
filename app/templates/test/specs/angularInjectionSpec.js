@@ -5,7 +5,7 @@ define(['loading-helper'], function() {
         beforeEach(module('webApp'));
         beforeEach(inject(function($compile, _$rootScope_) {
             $scope = _$rootScope_;
-            element = angular.element("<div paggie>[[2 + 2]]</div>");
+            element = angular.element("<div>[[2 + 2]]</div>");
             element = $compile(element)($scope);
         }));
 
