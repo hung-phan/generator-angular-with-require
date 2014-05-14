@@ -13,13 +13,23 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/angular/angular.js',
       {pattern: 'app/bower_components/**/*.js', included: false},
       {pattern: 'app/scripts/**/*.js', included: false},
       {pattern: 'test/**/*Spec.js', included: false},
       {pattern: 'test/**/*Helper.js', included: false},
+      'app/partials/**/*.html',
       'test/test-main.js',
     ],
 
+    preprocessors:  {
+      'app/partials/**/*.html': 'html2js'
+    },
+
+    ngHtml2JsPreprocessor: {
+        // strip app from the file path
+        stripPrefix: 'app/'
+    },
 
     // list of files to exclude
     exclude: [
