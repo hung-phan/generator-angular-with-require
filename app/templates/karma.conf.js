@@ -23,7 +23,7 @@ module.exports = function(config) {
     ],
 
     preprocessors:  {
-      'app/partials/**/*.html': 'html2js'
+      'app/partials/**/*.html': 'ng-html2js'
     },
 
     ngHtml2JsPreprocessor: {
