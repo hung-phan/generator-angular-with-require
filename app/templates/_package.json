@@ -17,7 +17,6 @@
     "karma-script-launcher": "*",
     "karma-chrome-launcher": "*",
     "karma-firefox-launcher": "*",
-    /*"karma-html2js-preprocessor": "*",*/
     "karma-ng-html2js-preprocessor": "*",
     "karma-jasmine": "*",
     "karma-requirejs": "*",
