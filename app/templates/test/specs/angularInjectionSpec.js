@@ -27,7 +27,7 @@ define(['loading-helper'], function() {
 
         it('template should be binded', function() {
             $scope.$digest();
-            expect(element.html()).toBe('4');
+            expect(element.html()).toBe('This is the template');
         });
     });
 });
