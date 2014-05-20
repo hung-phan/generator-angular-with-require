@@ -51,6 +51,11 @@ To run test
 $ grunt karma:unit:start
 ```
 
+To run e2e test. This requires selenium browser and chromedriver. Make sure you view [angular/protractor] (https://github.com/angular/protractor)
+```
+$ grunt shell:protractor
+```
+
 To build files for production
 ```
 $ grunt build
