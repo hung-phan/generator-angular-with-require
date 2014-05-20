@@ -31,7 +31,9 @@ Other dependencies
 
 3. [Grunt] (http://gruntjs.com/)
 
-4. Compass (gem install compass)
+4. SASS (gem install sass)
+
+5. Compass (gem install compass)
 
 ## Usage
 
