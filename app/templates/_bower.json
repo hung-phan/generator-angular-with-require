@@ -12,7 +12,7 @@
     "angular-ui-router": "0.2.7",<% if (includeUIBootstrap) { %>
     "angular-bootstrap": "*",<% } %><% if (includeAngularAnimate) { %>
     "angular-animate": "*",<% } %>
-    "jquery": "*",<% if (includeButtonCss) { %>
+    "jquery": "~2.1.1",<% if (includeButtonCss) { %>
     "Buttons": "*",<% } %><% if (includeAnimateCss) { %>
     "animate-sass": "*",<% } %>
     "requirejs": "*",
