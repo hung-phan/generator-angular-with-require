@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-with-require",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "A generator for Yeoman",
   "keywords": [
     "yeoman-generator"
