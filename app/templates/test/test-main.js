@@ -1,11 +1,17 @@
-var tests = [];
-for (var file in window.__karma__.files) {
-    if (window.__karma__.files.hasOwnProperty(file)) {
-        if (/test\/specs\/\w*Spec\.js$/.test(file)) {
-            tests.push(file);
-        }
-    }
-}
+var allTestFiles = [];
+var TEST_REGEXP = /test\/specs\/\w*Spec\.js$/;
+
+var pathToModule = function(path) {
+  return path.replace(/^\/base\//, '../../').replace(/\.js$/, '');
+};
+
+Object.keys(window.__karma__.files).forEach(function(file) {
+  if (TEST_REGEXP.test(file)) {
+    // Normalize paths to RequireJS module names.
+    allTestFiles.push(pathToModule(file));
+  }
+});
+
 requirejs.config({
     /*Karma serves files from '/app'*/
     baseUrl: 'base/app/scripts',
@@ -31,7 +37,7 @@ requirejs.config({
         'directives': ['angular']
     },
     // ask Require.js to load these files (all our tests)
-    deps: tests,
+    deps: allTestFiles,
 
     // start test run, once Require.js is done
     callback: window.__karma__.start

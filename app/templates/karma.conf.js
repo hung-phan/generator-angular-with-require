@@ -28,6 +28,7 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
         // strip app from the file path
+        enableRequireJs: true,
         stripPrefix: 'app/'
     },
 
