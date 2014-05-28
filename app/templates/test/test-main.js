@@ -16,6 +16,7 @@ requirejs.config({
     /*Karma serves files from '/app'*/
     baseUrl: 'base/app/scripts',
     paths: {
+        'jquery': '../bower_components/jquery/dist/jquery',
         'angular': '../bower_components/angular/angular',
         'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         'angular-resource': '../bower_components/angular-resource/angular-resource',
@@ -26,9 +27,7 @@ requirejs.config({
         'services': 'services/services'
     },
     shim: {
-        'angular': {
-            exports: 'angular'
-        },
+        'angular': { exports: 'angular', deps: ['jquery'] },
         'angular-resource': ['angular'],
         'angular-mocks': ['angular'],
         'controllers': ['angular', 'services'],
