@@ -180,14 +180,14 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
   }
 
   if (this.includeFontAwesome) {
-      header += "$fa-font-path: '../bower_components/font-awesome/fonts';\n" +
-         "@import '../bower_components/font-awesome/scss/font-awesome';\n";
+      header += "$fa-font-path: '../vendor/font-awesome/fonts';\n" +
+         "@import '../vendor/font-awesome/scss/font-awesome';\n";
   }
   if (this.includeButtonCss) {
-      header += "@import '../bower_components/Buttons/scss/buttons';\n"
+      header += "@import '../vendor/Buttons/scss/buttons';\n"
   }
   if (this.includeAnimateCss) {
-      header += "@import '../bower_components/animate-sass/animate';\n"
+      header += "@import '../vendor/animate-sass/animate';\n"
   }
 
   switch(this.cssFramework) {
@@ -196,8 +196,8 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
         "@import 'compass/reset';\n";
       break;
     case 'SASSBootstrap':
-      header += "$icon-font-path: '../bower_components/sass-bootstrap/fonts/';\n" +
-        "@import '../bower_components/sass-bootstrap/lib/bootstrap';\n";
+      header += "$icon-font-path: '../vendor/sass-bootstrap/fonts/';\n" +
+        "@import '../vendor/sass-bootstrap/lib/bootstrap';\n";
       break;
   }
 
@@ -243,7 +243,7 @@ AngularWithRequireGenerator.prototype.install = function install() {
       var projectDir = process.cwd() + '/app';
       fs.exists(projectDir + '/scripts/vendor/require.js', function(exists) {
         if (!exists) {
-          fs.createReadStream(projectDir + '/bower_components/requirejs/require.js')
+          fs.createReadStream(projectDir + '/vendor/requirejs/require.js')
           .pipe(fs.createWriteStream(projectDir + '/scripts/vendor/require.js'));
         }
       });

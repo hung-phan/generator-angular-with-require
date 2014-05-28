@@ -149,7 +149,7 @@ module.exports = function(grunt) {
             ]
         },
 
-        // bundle script for bower_components into app/scripts/main.js
+        // bundle script for vendor into app/scripts/main.js
         bower: {
             target: {
                 rjsConfig: '<%%= yeoman.app %>/scripts/config.js'
@@ -206,7 +206,7 @@ module.exports = function(grunt) {
                 imagesDir: '<%%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%%= yeoman.app %>/styles/fonts',
-                importPath: '<%%= yeoman.app %>/bower_components',
+                importPath: '<%%= yeoman.app %>/vendor',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
@@ -373,8 +373,8 @@ module.exports = function(grunt) {
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*',
-                        'bower_components/sass-bootstrap/fonts/*.*',
-                        'bower_components/font-awesome/fonts/*.*'
+                        'vendor/sass-bootstrap/fonts/*.*',
+                        'vendor/font-awesome/fonts/*.*'
                     ]
                 }]
             },
@@ -407,7 +407,7 @@ module.exports = function(grunt) {
         // reference in your app
         modernizr: {
             dist: {
-                devFile: '<%%= yeoman.app %>/bower_components/modernizr/modernizr.js',
+                devFile: '<%%= yeoman.app %>/vendor/modernizr/modernizr.js',
                 outputFile: '<%%= yeoman.dist %>/scripts/vendor/modernizr.js',
                 files: {
                     src: [
@@ -475,7 +475,6 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('requirejs-bundle', function() {
-        /*replace bower_components path in app/scripts/main.js file to vendor/*/
         function replaceBetween(string, start, end, what) {
             return string.substring(0, start) + what + string.substring(end);
         };
