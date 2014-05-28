@@ -149,7 +149,7 @@ module.exports = function(grunt) {
             ]
         },
 
-        // bundle script for vendor into app/scripts/main.js
+        // bundle script for bower_components into app/scripts/main.js
         bower: {
             target: {
                 rjsConfig: '<%%= yeoman.app %>/scripts/config.js'
@@ -206,7 +206,7 @@ module.exports = function(grunt) {
                 imagesDir: '<%%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%%= yeoman.app %>/styles/fonts',
-                importPath: '<%%= yeoman.app %>/vendor',
+                importPath: '<%%= yeoman.app %>/bower_components',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
@@ -373,8 +373,8 @@ module.exports = function(grunt) {
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*',
-                        'vendor/sass-bootstrap/fonts/*.*',
-                        'vendor/font-awesome/fonts/*.*'
+                        'bower_components/sass-bootstrap/fonts/*.*',
+                        'bower_components/font-awesome/fonts/*.*'
                     ]
                 }]
             },
@@ -407,7 +407,7 @@ module.exports = function(grunt) {
         // reference in your app
         modernizr: {
             dist: {
-                devFile: '<%%= yeoman.app %>/vendor/modernizr/modernizr.js',
+                devFile: '<%%= yeoman.app %>/bower_components/modernizr/modernizr.js',
                 outputFile: '<%%= yeoman.dist %>/scripts/vendor/modernizr.js',
                 files: {
                     src: [

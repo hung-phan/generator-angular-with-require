@@ -16,9 +16,9 @@ requirejs.config({
     /*Karma serves files from '/app'*/
     baseUrl: 'base/app/scripts',
     paths: {
-        'angular': '../vendor/angular/angular',
-        'angular-mocks': '../vendor/angular-mocks/angular-mocks',
-        'angular-resource': '../vendor/angular-resource/angular-resource',
+        'angular': '../bower_components/angular/angular',
+        'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
+        'angular-resource': '../bower_components/angular-resource/angular-resource',
         'loading-helper': '../../test/helpers/loadingHelper',
         'controllers': 'controllers/controllers',
         'directives': 'directives/directives',
