@@ -30,13 +30,8 @@ requirejs.config({
         'services': 'services/services'
     },
     shim: {
-        'angular': {
-            exports: 'angular',
-            deps: ['jquery']
-        },<% if (includeLodash) { %>
-        'lodash': {
-            exports: '_'
-        },<% } %>
+        'angular': { exports: 'angular', deps: ['jquery'] },<% if (includeLodash) { %>
+        'lodash': { exports: '_' },<% } %>
         'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
         'angular-animate': ['angular'],<% } %>
         'angular-ui-router': ['angular'],<% if (includeBindonce) { %>
