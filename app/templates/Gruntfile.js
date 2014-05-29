@@ -127,26 +127,22 @@ module.exports = function(grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%%= yeoman.app %>/scripts/vendor/*',
+                '<%%= yeoman.app %>/src/{,*/}*.js',
+                '!<%%= yeoman.app %>/src/vendor/*',
                 'test/spec/{,*/}*.js'
             ]
         },
 
-        // bundle script for bower_components into app/scripts/main.js
-        bower: {
-            target: {
-                rjsConfig: '<%%= yeoman.app %>/scripts/config.js'
-            }
-        },
+        // bundle script for bower_components into app/src/main.js
+        bower: { target: { rjsConfig: '<%%= yeoman.app %>/src/config.js' } },
 
-        // require js
+        // requirejs task
         requirejs: {
             dist: {
                 options: {
-                    dir: "<%%= yeoman.dist %>/scripts/",
-                    baseUrl: '<%%= yeoman.app %>/scripts', // Directory to look for the require configuration file
-                    mainConfigFile: '<%%= yeoman.app %>/scripts/config.js', // This is relative to the grunt file
+                    dir: "<%%= yeoman.dist %>/src/",
+                    baseUrl: '<%%= yeoman.app %>/src', // Directory to look for the require configuration file
+                    mainConfigFile: '<%%= yeoman.app %>/src/config.js', // This is relative to the grunt file
                     modules: [{ name: 'main' }], // create a global bundle
                     preserveLicenseComments: false, // remove all comments
                     removeCombined: true, // remove files which aren't in bundles
@@ -154,18 +150,19 @@ module.exports = function(grunt) {
                     useStrict: true
                 }
             }
-        },<% if (testFramework === 'jasmine') { %>
+        },
+
         // karma testing
         karma: {
             unit: {
                 configFile: 'config/karma.conf.js'
             }
-        },
+        },<% if (testFramework === 'jasmine') { %>
 
         // Jasmine testing framework configuration options
         jasmine: {
             pivotal: {
-                src: '<%%= yeoman.app %>/scripts/**/*.js',
+                src: '<%%= yeoman.app %>/src/**/*.js',
                 options: {
                     specs: 'test/spec/*Spec.js',
                     helpers: 'test/spec/*Helper.js'
