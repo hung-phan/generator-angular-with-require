@@ -110,9 +110,9 @@ module.exports = function(grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        '<%%= yeoman.dist %>/src/config.js', // remove config.js
+                        '<%%= yeoman.dist %>/src/*.js', // remove config.js
                         '<%%= yeoman.dist %>/src/**/*.spec.js' // remove all test files
-                        //'!<%%= yeoman.dist %>/src/main.js' // keep main.js file
+                        '!<%%= yeoman.dist %>/src/main.js' // keep main.js file
                     ]
                 }]
             },
