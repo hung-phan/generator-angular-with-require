@@ -61,6 +61,10 @@ module.exports = function(grunt) {
                 tasks: ['jshint'],
                 options: { livereload: true }
             },
+            requirejsConfig: {
+                files: ['<%= yeoman.app %>/src/config.js'],
+                tasks: ['requirejs-config-copy'],
+            },
             jstest: {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['test:watch']
