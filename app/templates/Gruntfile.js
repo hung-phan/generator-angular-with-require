@@ -414,9 +414,9 @@ module.exports = function(grunt) {
         }
 
         grunt.task.run([
-            'connect:test', <% if (testFramework === 'mocha') { %>
-            'mocha' <% } else if (testFramework === 'jasmine') { %>
-            'jasmine' <% } %>
+            'connect:test',<% if (testFramework === 'mocha') { %>
+            'mocha'<% } else if (testFramework === 'jasmine') { %>
+            'jasmine'<% } %>
         ]);
     });
 
@@ -425,6 +425,8 @@ module.exports = function(grunt) {
             return string.substring(0, start) + what + string.substring(end);
         };
         var indexHTML = grunt.file.read('dist/index.html');
+
+        //remove config file
         indexHTML = replaceBetween(indexHTML,
             indexHTML.indexOf('<!--build script-->'),
             indexHTML.indexOf('<!--end build script-->') + '<!--end build script-->'.length, '');
