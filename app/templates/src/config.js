@@ -1,5 +1,6 @@
 requirejs.config({
-    baseUrl: './scripts',
+    baseUrl: './src',
+    /* copy code */
     paths: {
         'angular': '../bower_components/angular/angular',
         /*require angular resource for easily handling sending and receiving request*/
@@ -11,23 +12,15 @@ requirejs.config({
         /*require bindonce to optimize watch for angular binding [https://github.com/Pasvaz/bindonce]*/
         'bindonce': '../bower_components/angular-bindonce/bindonce',<% } %><% if (includeUIBootstrap) { %>
         /*require ui-bootstrap with the embeded template [http://angular-ui.github.io/bootstrap/]*/
-        'ui-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',<% }%><% if (includeModernizr) { %>
-        /*require modernizr*/
-        'modernizr': '../bower_components/modernizr/modernizr',<% } %>
+        'ui-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',<% }%>
         /*require jquery*/
         'jquery': '../bower_components/jquery/dist/jquery',<% if (includeLodash) { %>
         /*require lodash library [http://lodash.com/docs]*/
         'lodash': '../bower_components/lodash/dist/lodash',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         /*require bootstrap.js to make bootstrap components work*/
         'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
-        /*require main controller*/
-        'controllers': 'controllers/controllers',
-        /*require main directive*/
-        'directives': 'directives/directives',
-        /*require main filter*/
-        'filters': 'filters/filters',
-        /*require main service*/
-        'services': 'services/services'
+        /*require home module*/
+        'home': 'home/home'
     },
     shim: {
         'angular': { exports: 'angular', deps: ['jquery'] },<% if (includeLodash) { %>
@@ -37,10 +30,7 @@ requirejs.config({
         'angular-ui-router': ['angular'],<% if (includeBindonce) { %>
         'bindonce': ['angular'],<% } %><% if (includeUIBootstrap) { %>
         'ui-bootstrap-tpls': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
-        'bootstrap': ['jquery'],<% } %>
-        'controllers': ['angular', 'services'],
-        'filters': ['angular'],
-        'services': ['angular'],
-        'directives': ['angular']
+        'bootstrap': ['jquery']<% } %>
     }
+    /* end copy code */
 });

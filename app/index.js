@@ -138,14 +138,12 @@ AngularWithRequireGenerator.prototype.h5bp = function h5bp() {
   this.copy('robots.txt', 'app/robots.txt');
   this.copy('htaccess', 'app/.htaccess');
   this.template('index.html', 'app/index.html');
-  this.template('partials/home-page.html', 'app/partials/home-page.html');
-  this.copy('partials/paggie.html', 'app/partials/paggie.html');
 };
 
 AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet() {
-  var cssFile = 'style.scss',
-      header = '',
-      content = this.readFileAsString(path.join(this.sourceRoot(), 'main.scss'));
+  var cssFile = 'style.scss';
+  var header = '';
+  var content = this.readFileAsString(path.join(this.sourceRoot(), 'main.scss'));
 
   if (this.cssFramework === 'SASSBootstrap') {
       content += this.readFileAsString(path.join(this.sourceRoot(), 'bootstrap.css'));
@@ -153,7 +151,7 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
 
   if (this.includeFontAwesome) {
       header += "$fa-font-path: '../bower_components/font-awesome/fonts';\n" +
-         "@import '../bower_components/font-awesome/scss/font-awesome';\n";
+                "@import '../bower_components/font-awesome/scss/font-awesome';\n";
   }
   if (this.includeButtonCss) {
       header += "@import '../bower_components/Buttons/scss/buttons';\n"
@@ -164,12 +162,11 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
 
   switch(this.cssFramework) {
     case 'CompassFramework':
-      header += "@import 'compass';\n" +
-        "@import 'compass/reset';\n";
+      header += "@import 'compass';\n" + "@import 'compass/reset';\n";
       break;
     case 'SASSBootstrap':
       header += "$icon-font-path: '../bower_components/sass-bootstrap/fonts/';\n" +
-        "@import '../bower_components/sass-bootstrap/lib/bootstrap';\n";
+                "@import '../bower_components/sass-bootstrap/lib/bootstrap';\n";
       break;
   }
 
@@ -179,20 +176,15 @@ AngularWithRequireGenerator.prototype.mainStylesheet = function mainStylesheet()
 };
 
 AngularWithRequireGenerator.prototype.jsFile = function jsFile() {
-  var prefix = 'app/scripts';
+  var prefix = 'app/src';
   this.mkdir(prefix);
-  this.copy('scripts/config.js', prefix + '/config.js');
-  this.copy('scripts/main.js', prefix + '/main.js');
-  this.copy('scripts/controllers.js', prefix + '/controllers/controllers.js');
-  this.copy('scripts/directives.js', prefix + '/directives/directives.js');
-  this.copy('scripts/filters.js', prefix + '/filters/filters.js');
-  this.copy('scripts/services.js', prefix + '/services/services.js');
+  this.copy('src/config.js', prefix + '/config.js');
+  this.copy('src/main.js', prefix + '/main.js');
 };
 
 AngularWithRequireGenerator.prototype.app = function app() {
   this.mkdir('app/images');
-  this.mkdir('app/partials');
-  this.mkdir('app/scripts/vendor');
+  this.mkdir('app/src/vendor');
   this.mkdir('config');
 };
 
