@@ -42,13 +42,10 @@ AngularWithRequireGenerator.prototype.askForCSSFramework = function askForCSSFra
     type: 'list',
     name: 'cssFramework',
     message: 'What CSS framework would you like to include?',
-    choices: [{
-      name: 'SASS Bootstrap',
-      value: 'SASSBootstrap'
-    }, {
-      name: 'SASS Compass framework',
-      value: 'CompassFramework'
-    }]
+    choices: [
+        { name: 'SASS Bootstrap'         , value: 'SASSBootstrap' },
+        { name: 'SASS Compass framework' , value: 'CompassFramework' }
+    ]
   }];
 
   this.prompt(prompts, function (props) {
@@ -64,27 +61,19 @@ AngularWithRequireGenerator.prototype.askForCSSFile = function askForCSSFile() {
     type: 'checkbox',
     name: 'cssFile',
     message: 'What css library would you like to include?',
-    choices: [{
-      name: 'Buttons for SASS and Compass by Alexwolfe',
-      value: 'includeButtonCss',
-      checked: false
-    }, {
-      name: 'Animate SCSS',
-      value: 'includeAnimateCss',
-      checked: false
-    }, {
-      name: 'Bootstrap font-awesome',
-      value: 'includeFontAwesome',
-      checked: true
-    }]
+    choices: [
+      { name: 'SASS Button by Alexwolfe' , value: 'includeButtonCss'   , checked: false },
+      { name: 'Animate SCSS'             , value: 'includeAnimateCss'  , checked: false },
+      { name: 'Bootstrap font-awesome'   , value: 'includeFontAwesome' , checked: true }
+    ]
   }];
 
   this.prompt(prompts, function (props) {
     function includeCSS(css) { return props.cssFile.indexOf(css) !== -1; }
 
     // CSS
-    this.includeButtonCss = includeCSS('includeButtonCss');
-    this.includeAnimateCss = includeCSS('includeAnimateCss');
+    this.includeButtonCss   = includeCSS('includeButtonCss');
+    this.includeAnimateCss  = includeCSS('includeAnimateCss');
     this.includeFontAwesome = includeCSS('includeFontAwesome');
 
     cb();
@@ -98,43 +87,26 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
     type: 'checkbox',
     name: 'jsFile',
     message: 'What js library would you like to include?',
-    choices: [{
-      name: 'Lodash.js',
-      value: 'includeLodash',
-      checked: false
-    }, {
-      name: 'Angular UI-Bootstrap',
-      value: 'includeUIBootstrap',
-      checked: false
-    }, {
-      name: 'Angular animate',
-      value: 'includeAngularAnimate',
-      checked: false
-    }, {
-      name: 'Bindonce by Pasvaz (high performance binding for angular)',
-      value: 'includeBindonce',
-      checked: false
-    }, {
-      name: 'Jasmine Testing framework',
-      value: 'includeJasmine',
-      checked: true
-    }, {
-      name: 'Modernizr',
-      value: 'includeModernizr',
-      checked: true
-    }]
+    choices: [
+      { name: 'Lodash.js'                 , value: 'includeLodash'         , checked: false } ,
+      { name: 'Angular UI-Bootstrap'      , value: 'includeUIBootstrap'    , checked: false } ,
+      { name: 'Angular animate'           , value: 'includeAngularAnimate' , checked: false } ,
+      { name: 'Bindonce by Pasvaz'        , value: 'includeBindonce'       , checked: false } ,
+      { name: 'Jasmine Testing framework' , value: 'includeJasmine'        , checked: true }  ,
+      { name: 'Modernizr'                 , value: 'includeModernizr'      , checked: true }
+    ]
   }];
 
   this.prompt(prompts, function (props) {
     function includeJS(js) { return props.jsFile.indexOf(js) !== -1; }
 
     // JS
-    this.includeLodash = includeJS('includeLodash');
-    this.includeUIBootstrap = includeJS('includeUIBootstrap');
+    this.includeLodash         = includeJS('includeLodash');
+    this.includeUIBootstrap    = includeJS('includeUIBootstrap');
     this.includeAngularAnimate = includeJS('includeAngularAnimate');
-    this.includeBindonce = includeJS('includeBindonce');
-    this.includeJasmine = includeJS('includeJasmine');
-    this.includeModernizr = includeJS('includeModernizr');
+    this.includeBindonce       = includeJS('includeBindonce');
+    this.includeJasmine        = includeJS('includeJasmine');
+    this.includeModernizr      = includeJS('includeModernizr');
 
     if (this.includeJasmine) { this.testFramework = 'jasmine'; }
 

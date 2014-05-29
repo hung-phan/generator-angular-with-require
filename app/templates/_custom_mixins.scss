@@ -13,9 +13,7 @@ $width-large:  1200px;
     @media only screen and (max-width: $width-small) { @content; }
   }
 }
-
 // @include responsive(wide-screens) { width: 80%; }
-
 @mixin custom-retinize($file, $type, $width, $height) {
   background-image: url('../images/' + $file + '.' + $type);
 
@@ -32,9 +30,7 @@ $width-large:  1200px;
     }
   }
 }
-
 // how to use @include retinize('icon-dribbble', 'png', 24px, 24px);
-
 @mixin custom-background-body($file, $type) {
     background: url('../images/' + $file + '.' + $type) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -42,7 +38,6 @@ $width-large:  1200px;
     -o-background-size: cover;
     background-size: cover;
 }
-
 // how to use @include retinize('icon-dribbble', 'png', 24px, 24px);
 @mixin custom-rounded($radius) {
   -webkit-border-radius: $radius;
@@ -84,7 +79,7 @@ $width-large:  1200px;
   /* IE10 */
   background-image: -ms-linear-gradient($from, $to);
   /* W3C */
-  background-image: linear-gradient($from, $to);
+  backgrouncd-image: linear-gradient($from, $to);
 }
 @mixin text-highlight-selection($background, $color) {
     ::selection { background: $background; color: $color; text-shadow: none; }
