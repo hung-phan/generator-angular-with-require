@@ -1,11 +1,10 @@
-// Generated on 2014-01-14 using generator-webapp 0.4.6
 'use strict';
 
 // # Globbing
 // for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
+// '{,*/}*.js'
 // use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
+// '**/*.js'
 
 module.exports = function(grunt) {
 
@@ -36,21 +35,14 @@ module.exports = function(grunt) {
             livereload: {
                 options: {
                     open: true,
-                    base: [
-                        '.tmp',
-                        '<%%= yeoman.app %>'
-                    ]
+                    base: ['.tmp', '<%%= yeoman.app %>']
                 }
             },
             test: {
                 options: {
                     hostname: 'localhost',
                     port: 9001,
-                    base: [
-                        '.tmp',
-                        'test',
-                        '<%%= yeoman.app %>'
-                    ]
+                    base: ['.tmp', 'test', '<%%= yeoman.app %>']
                 }
             },
             dist: {
@@ -67,22 +59,18 @@ module.exports = function(grunt) {
             js: {
                 files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
                 tasks: ['jshint'],
-                options: {
-                    livereload: true
-                }
+                options: { livereload: true }
             },
             jstest: {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['test:watch']
             },
-            /*uncomment this, if you want to run karma testing everytime the scripts are changing*/
+            //uncomment this task, if you want to run karma testing everytime the scripts are changing
             //karma: {
                 //files: ['app/scripts/**/*.js', 'test/**/*.js'],
                 //tasks: ['karma:unit']
             //},
-            gruntfile: {
-                files: ['Gruntfile.js']
-            },
+            gruntfile: { files: ['Gruntfile.js'] },
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer', 'concat']
@@ -92,22 +80,20 @@ module.exports = function(grunt) {
                 tasks: ['newer:copy:styles', 'autoprefixer']
             },
             livereload: {
-                options: {
-                    livereload: '<%%= connect.options.livereload %>'
-                },
+                options: { livereload: '<%%= connect.options.livereload %>' },
                 files: [
-                    '<%%= yeoman.app %>/{,*/}*.html',
+                    '<%%= yeoman.app %>/{,*/}*.html', // index.html, 404.html, etc
+                    '<%%= yeoman.app %>/src/{,*/}*.html', // arrange code by modules
                     '.tmp/styles/{,*/}*.css',
                     '<%%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
                 ]
             }
         },
 
-        shell: { // Task
-            protractor: { // Target
-                options: { // Options
-                    stdout: true
-                },
+        // grunt task for running shell command
+        shell: {
+            protractor: {
+                options: { stdout: true },
                 command: 'protractor config/e2e.conf.js'
             }
         },
