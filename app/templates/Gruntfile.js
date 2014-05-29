@@ -420,17 +420,30 @@ module.exports = function(grunt) {
         ]);
     });
 
-    grunt.registerTask('requirejs-bundle', function() {
-        function replaceBetween(string, start, end, what) {
-            return string.substring(0, start) + what + string.substring(end);
-        };
-        var indexHTML = grunt.file.read('dist/index.html');
+    //function for process requirejs file
+    function replaceBetween(string, start, end, what) {
+        return string.substring(0, start) + what + string.substring(end);
+    };
 
+    grunt.registerTask('requirejs-bundle', function() {
+        var indexHTML = grunt.file.read('dist/index.html');
         //remove config file
         indexHTML = replaceBetween(indexHTML,
             indexHTML.indexOf('<!--build script-->'),
             indexHTML.indexOf('<!--end build script-->') + '<!--end build script-->'.length, '');
         grunt.file.write('dist/index.html', indexHTML);
+    });
+
+    grunt.registerTask('requirejs-config-copy', function() {
+        var mainRequireJs = grunt.file.read('app/src/config.js');
+        var configurations = mainRequireJs.substring(
+            mainRequireJs.indexOf('paths'),
+            mainRequireJs.indexOf('/* test tag -- do not remove this tag */'),
+        );
+        var testMainRequireJs = grunt.file.read('test/test-main.js.template');
+        var tmpIndex = testMainRequireJs.indexOf('// configurations');
+        testMainRequireJs = replaceBetween(testMainRequireJs, tmpIndex, tmpIndex + '// configurations'.length, configurations);
+        grunt.file.write('test/test-main.js', testMainRequireJs);
     });
 
     grunt.registerTask('build', [

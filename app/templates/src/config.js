@@ -1,6 +1,5 @@
 requirejs.config({
     baseUrl: './src',
-    /* copy code */
     paths: {
         'angular': '../bower_components/angular/angular',
         /*require angular resource for easily handling sending and receiving request*/
@@ -31,6 +30,5 @@ requirejs.config({
         'bindonce': ['angular'],<% } %><% if (includeUIBootstrap) { %>
         'ui-bootstrap-tpls': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         'bootstrap': ['jquery']<% } %>
-    }
-    /* end copy code */
+    }/* test tag -- do not remove this tag */
 });
