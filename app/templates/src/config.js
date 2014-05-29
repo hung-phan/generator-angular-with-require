@@ -2,6 +2,8 @@ requirejs.config({
     baseUrl: './src',
     paths: {
         'angular': '../bower_components/angular/angular',
+        /*require angular mocks for testing*/
+        'angular-mocks': '../bower_components/angular-mocks/angular-mocks',
         /*require angular resource for easily handling sending and receiving request*/
         'angular-resource': '../bower_components/angular-resource/angular-resource',<% if (includeAngularAnimate) { %>
         /*require angular animate for easily handling animation. I recommend to use this with tweenmax (bower install --save greensock)*/
@@ -22,7 +24,8 @@ requirejs.config({
         'home': 'home/home'
     },
     shim: {
-        'angular': { exports: 'angular', deps: ['jquery'] },<% if (includeLodash) { %>
+        'angular': { exports: 'angular', deps: ['jquery'] },
+        'anuglar-mocks': ['angular'],<% if (includeLodash) { %>
         'lodash': { exports: '_' },<% } %>
         'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
         'angular-animate': ['angular'],<% } %>

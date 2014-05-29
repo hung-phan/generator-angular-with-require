@@ -1,9 +1,9 @@
-define(['angular-mocks', 'home/home'], function() {
+define(['angular-mocks', 'home'], function() {
     describe('controller title', function() {
         var $scope;
         var $location;
         var homePageController;
-        beforeEach(module('homePageModule'));
+        beforeEach(module('homeModule'));
         beforeEach(inject(function(_$injector_, _$rootScope_) {
             $scope = _$rootScope_.$new();
             $location = _$injector_.get('$location');
