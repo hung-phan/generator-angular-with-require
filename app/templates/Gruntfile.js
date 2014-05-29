@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             },
             //uncomment this task, if you want to run karma testing everytime the scripts are changing
             //karma: {
-                //files: ['app/scripts/**/*.js', 'test/**/*.js'],
+                //files: ['app/src/**/*.js'],
                 //tasks: ['karma:unit']
             //},
             gruntfile: { files: ['Gruntfile.js'] },
@@ -97,24 +97,22 @@ module.exports = function(grunt) {
                 command: 'protractor config/e2e.conf.js'
             }
         },
+
         // Empties folders to start fresh
         clean: {
             dist: {
                 files: [{
                     dot: true,
-                    src: [
-                        '.tmp',
-                        '<%%= yeoman.dist %>/*',
-                        '!<%%= yeoman.dist %>/.git*'
-                    ]
+                    src: ['.tmp', '<%%= yeoman.dist %>/*', '!<%%= yeoman.dist %>/.git*']
                 }]
             },
             afterBuild: {
                 files: [{
                     dot: true,
                     src: [
-                        '<%%= yeoman.dist %>/scripts/*.js',
-                        '!<%%= yeoman.dist %>/scripts/main.js'
+                        '<%%= yeoman.dist %>/src/config.js', // remove config.js
+                        '<%%= yeoman.dist %>/src/**/*.spec.js' // remove all test files
+                        //'!<%%= yeoman.dist %>/src/main.js' // keep main.js file
                     ]
                 }]
             },
