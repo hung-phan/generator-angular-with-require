@@ -196,6 +196,7 @@ AngularWithRequireGenerator.prototype.testFile = function testFile() {
   this.copy('karma.conf.js', 'config/karma.conf.js');
   this.copy('e2e.conf.js', 'config/e2e.conf.js');
   this.directory('test', 'test');
+  this.template('test/e2eSpecs/angularE2Espec.js', 'test/e2eSpecs/angularE2Espec.js');
 };
 
 AngularWithRequireGenerator.prototype.install = function install() {
