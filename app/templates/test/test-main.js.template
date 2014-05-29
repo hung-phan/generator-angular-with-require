@@ -17,8 +17,7 @@ requirejs.config({
     // Karma serves files from '/app'
     baseUrl: 'base/app/src',
 
-    // config
-    <%= requirejsConfig %>
+    // configurations
 
     // ask Require.js to load these files (all our tests)
     deps: allTestFiles,
