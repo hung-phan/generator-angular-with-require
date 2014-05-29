@@ -182,6 +182,14 @@ AngularWithRequireGenerator.prototype.jsFile = function jsFile() {
   this.copy('src/main.js', prefix + '/main.js');
 };
 
+AngularWithRequireGenerator.prototype.moduleCopy = function moduleCopy() {
+  var prefix = 'app/src/home';
+  this.mkdir(prefix);
+  this.copy('src/home/home.js', prefix + '/home.js');
+  this.copy('src/home/home.spec.js', prefix + '/home.spec.js');
+  this.copy('src/home/home.tpl.html', prefix + '/home.tpl.html');
+};
+
 AngularWithRequireGenerator.prototype.app = function app() {
   this.mkdir('app/images');
   this.mkdir('app/src/vendor');
@@ -195,9 +203,7 @@ AngularWithRequireGenerator.prototype.testFile = function testFile() {
 };
 
 AngularWithRequireGenerator.prototype.install = function install() {
-  if (this.options['skip-install']) {
-    return;
-  }
+  if (this.options['skip-install']) { return; }
 
   var done = this.async();
   this.installDependencies({
@@ -205,10 +211,10 @@ AngularWithRequireGenerator.prototype.install = function install() {
     skipInstall: this.options['skip-install'],
     callback: function() {
       var projectDir = process.cwd() + '/app';
-      fs.exists(projectDir + '/scripts/vendor/require.js', function(exists) {
+      fs.exists(projectDir + '/src/vendor/require.js', function(exists) {
         if (!exists) {
           fs.createReadStream(projectDir + '/bower_components/requirejs/require.js')
-          .pipe(fs.createWriteStream(projectDir + '/scripts/vendor/require.js'));
+          .pipe(fs.createWriteStream(projectDir + '/src/vendor/require.js'));
         }
       });
     }
