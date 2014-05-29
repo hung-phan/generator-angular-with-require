@@ -183,11 +183,7 @@ AngularWithRequireGenerator.prototype.jsFile = function jsFile() {
 };
 
 AngularWithRequireGenerator.prototype.moduleCopy = function moduleCopy() {
-  var prefix = 'app/src/home';
-  this.mkdir(prefix);
-  this.copy('src/home/home.js', prefix + '/home.js');
-  this.copy('src/home/home.spec.js', prefix + '/home.spec.js');
-  this.copy('src/home/home.tpl.html', prefix + '/home.tpl.html');
+  this.directory('src/home', 'app/src/home')
 };
 
 AngularWithRequireGenerator.prototype.app = function app() {
