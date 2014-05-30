@@ -1,6 +1,7 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
+var fs = require('fs');
 
 var DirectiveGenerator = module.exports = function DirectiveGenerator(args, options, config) {
   // By calling `NamedBase` here, we get the argument to the subgenerator call
