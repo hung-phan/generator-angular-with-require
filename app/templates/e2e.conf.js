@@ -8,5 +8,5 @@ exports.config = {
     jasmineNodeOpts: {
         showColors: true
     },
-    specs: ['../test/e2eSpecs/*.espec.js*']
+    specs: ['../test/e2eSpecs/*.e2espec.js*']
 };
