@@ -158,7 +158,7 @@ $ grunt build
 ```
 
 This also supports for subgenerator for controller, filter, service, and directive as well. Make sure you link them in your
-main module
+main.js
 ```
 $ yo angular-with-require:controller "name" #replace the name with your module name
 $ yo angular-with-require:service "name" #replace the name with your module name
