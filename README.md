@@ -35,7 +35,10 @@ Other dependencies
 
 5. Compass (gem install compass)
 
-## Structure - based on [ng-boilerplate (https://github.com/ngbp/ngbp) but optimized with requirejs
+## Structure
+
+This structure is based on [ng-boilerplate] (https://github.com/ngbp/ngbp) but optimized with requirejs
+
 ```
 application/
   |- app/
