@@ -8,6 +8,7 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
   yeoman.generators.NamedBase.apply(this, arguments);
 
   console.log('You just create the sub controller with the argument ' + this.name + '. Please link it with your main controller');
+  this.uppercaseName = this.name.charAt(0).toUpperCase() + this.name.slice(1);
 };
 
 util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
@@ -15,7 +16,7 @@ util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
 ControllerGenerator.prototype.files = function files() {
   var prefix = 'app/src/' + this.name + '/';
   this.mkdir(prefix);
-  this.template('controller-template.js'        , prefix + this.name + '.js');
-  this.template('controller-template.spec.js'   , prefix + this.name + '.spec.js');
+  this.template('controller-template.js'       , prefix + this.name + '.js');
+  this.template('controller-template.spec.js'  , prefix + this.name + '.spec.js');
   this.template('controller-template.tpl.html' , prefix + this.name + '.tpl.html');
 };

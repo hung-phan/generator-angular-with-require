@@ -2,13 +2,13 @@ define(['angular-mocks', '<%= name %>'], function() {
     describe('controller title', function() {
         var $scope;
         var $location;
-        var <%= name %>Controller;
+        var dummy<%= uppercaseName %>Controller;
         beforeEach(module('<%= name %>Module'));
         beforeEach(inject(function(_$injector_, _$rootScope_) {
             $scope = _$rootScope_.$new();
             $location = _$injector_.get('$location');
             var $controller = _$injector_.get('$controller');
-            <%= name %>Controller = $controller('DummyController', {
+            dummy<%= uppercaseName %>Controller = $controller('Dummy<%= uppercaseName %>Controller', {
                 '$scope': $scope,
                 '$location': $location
             })

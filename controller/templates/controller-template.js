@@ -4,9 +4,9 @@ define(['angular', 'angular-ui-router'], function(angular) {
         $stateProvider.state('<%= name %>', {
             url: '/<%= name %>',
             templateUrl: 'src/<%= name %>/<%= name %>.tpl.html',
-            controller: 'DummyController'
+            controller: 'Dummy<%= uppercaseName %>Controller'
         });
-    }]).controller('DummyController', [
+    }]).controller('Dummy<%= uppercaseName %>Controller', [
         '$scope',
         '$location',
         function($scope, $location) {
