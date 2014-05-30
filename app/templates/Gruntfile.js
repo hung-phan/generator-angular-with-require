@@ -433,8 +433,8 @@ module.exports = function(grunt) {
         var indexHTML = grunt.file.read('dist/index.html');
         //remove config file
         indexHTML = replaceBetween(indexHTML,
-            indexHTML.indexOf('<!--build script-->'),
-            indexHTML.indexOf('<!--end build script-->') + '<!--end build script-->'.length, '');
+            indexHTML.indexOf('<!--build tag-->'),
+            indexHTML.indexOf('<!--end build tag-->') + '<!--end build tag-->'.length, '');
         grunt.file.write('dist/index.html', indexHTML);
     });
 
