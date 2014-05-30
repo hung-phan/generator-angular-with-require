@@ -1,9 +1,7 @@
 define(['angular'], function(angular) {
     'use strict';
-
-    /* Services */
-    angular.module('<%= name %>Services', [])
-        .factory('DummyService', [
+    angular.module('<%= name %>Module', [])
+        .factory('<%= uppercaseName %>Service', [
             function() {
                 return 'Hello world';
             }
