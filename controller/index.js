@@ -27,21 +27,21 @@ ControllerGenerator.prototype.files = function files() {
   this.template('controller-template.tpl.html' , prefix + this.name + '.tpl.html');
 
   var configFile = process.cwd() + '/app/src/config.js';
+  var name = this.name;
   fs.exists(configFile, function(exists) {
-      fs.readFile(configFile, "utf8", function (err, data) {
-        if (err) throw err;
+    fs.readFile(configFile, "utf8", function (err, data) {
+      if (err) throw err;
 
-        var tag = this.name + '/' + this.name;
-        if (data.indexOf(tag) != -1) return; // already exists tag
+      var tag = name + '/' + name;
+      if (data.indexOf(tag) != -1) return; // already exists tag
 
-        var index = data.indexOf('/*--insert code tag--do not remove*/');
-        var config = '/*require ' + this.name + ' module*/\n' +
-                     '\'' + this.name + '\': \'' + this.name + '/' + this.name + '\',\n';
-        data = replaceBetween(data, index, index, config);
-        fs.writeFile(configFile, data, function(err) {
-          if(err) { console.log(err); } else { console.log("The config file was saved!"); }
-        });
+      var index = data.indexOf('/*--insert code tag--do not remove*/');
+      var config = '/*require ' + name + ' module*/\n' +
+                   '\t\t\'' + name + '\': \'' + name + '/' + name + '\',\n\t\t';
+      data = replaceBetween(data, index, index, config);
+      fs.writeFile(configFile, data, function(err) {
+        if(err) { console.log(err); } else { console.log("The config file was saved!"); }
       });
-    }
+    });
   });
 };
