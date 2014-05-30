@@ -34,5 +34,5 @@ requirejs.config({
         'bindonce': ['angular'],<% } %><% if (includeUIBootstrap) { %>
         'ui-bootstrap-tpls': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         'bootstrap': ['jquery']<% } %>
-    }/*--test tag--do not remove*/
+    }/*--requirejs config copy tag--do not remove*/
 });

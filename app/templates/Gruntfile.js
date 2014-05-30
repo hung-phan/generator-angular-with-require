@@ -442,7 +442,7 @@ module.exports = function(grunt) {
         var mainRequireJs = grunt.file.read('app/src/config.js');
         var configurations = mainRequireJs.substring(
             mainRequireJs.indexOf('paths'),
-            mainRequireJs.indexOf('/*--test tag--do not remove*/')
+            mainRequireJs.indexOf('/*--requirejs config copy tag--do not remove*/')
         ) + ',';
         var testMainRequireJs = grunt.file.read('test/test-main.js.template');
         var tmpIndex = testMainRequireJs.indexOf('// configurations');
