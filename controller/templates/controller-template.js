@@ -1,6 +1,6 @@
 define(['angular', 'angular-ui-router'], function(angular) {
     angular.module('<%= name %>Module', ['ui.router']).config(['$stateProvider', function($stateProvider) {
-        /*config path for home page*/
+        /*config path for <%= name %> module*/
         $stateProvider.state('<%= name %>', {
             url: '/<%= name %>',
             templateUrl: 'src/<%= name %>/<%= name %>.tpl.html',
