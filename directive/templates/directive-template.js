@@ -4,14 +4,15 @@ define(['angular'], function(angular) {
 
     angular.module('<%= name %>Directives', [])
         .directive('paggie', [
-
             function() {
                 return {
                     restrict: 'E',
                     replace: true,
-                    templateUrl: 'partials/paggie.html',
+                    templateUrl: '/.html',
                     scope: {},
-                    link: function(scope, element, attrs) {}
+                    link: function(scope, element, attrs) {
+
+                    }
                 };
             }
         ]);

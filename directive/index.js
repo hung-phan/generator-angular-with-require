@@ -8,10 +8,39 @@ var DirectiveGenerator = module.exports = function DirectiveGenerator(args, opti
   yeoman.generators.NamedBase.apply(this, arguments);
 
   console.log('You called the directive subgenerator with the argument ' + this.name + '.');
+  this.uppercaseName = this.name.charAt(0).toUpperCase() + this.name.slice(1);
 };
 
 util.inherits(DirectiveGenerator, yeoman.generators.NamedBase);
 
 DirectiveGenerator.prototype.files = function files() {
-  this.template('directive-template.js', 'app/scripts/directives/' + this.name + '-directive.js');
+  // replace between
+  function replaceBetween(string, start, end, what) {
+    return string.substring(0, start) + what + string.substring(end);
+  };
+
+  var prefix = 'app/src/' + this.name + '/';
+  this.mkdir(prefix);
+  this.template('directive-template.js'       , prefix + this.name + '.js');
+  this.template('directive-template.spec.js'  , prefix + this.name + '.spec.js');
+  this.template('directive-template.tpl.html' , prefix + this.name + '.tpl.html');
+
+  var configFile = process.cwd() + '/app/src/config.js';
+  var name = this.name;
+  fs.exists(configFile, function(exists) {
+    fs.readFile(configFile, "utf8", function (err, data) {
+      if (err) throw err;
+
+      var tag = name + '/' + name;
+      if (data.indexOf(tag) != -1) return; // already exists tag
+
+      var index = data.indexOf('/*--insert code tag--do not remove*/');
+      var config = '/*require ' + name + ' module*/\n' +
+                   '\t\t\'' + name + '\': \'' + name + '/' + name + '\',\n\t\t';
+      data = replaceBetween(data, index, index, config);
+      fs.writeFile(configFile, data, function(err) {
+        if(err) { console.log(err); } else { console.log("The config file was saved!"); }
+      });
+    });
+  });
 };
