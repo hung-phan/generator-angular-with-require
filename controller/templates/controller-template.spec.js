@@ -3,7 +3,7 @@ define(['angular-mocks', '<%= name %>'], function() {
         var $scope;
         var $location;
         var <%= name %>Controller;
-        beforeEach(module('homeModule'));
+        beforeEach(module('<%= name %>Module'));
         beforeEach(inject(function(_$injector_, _$rootScope_) {
             $scope = _$rootScope_.$new();
             $location = _$injector_.get('$location');
