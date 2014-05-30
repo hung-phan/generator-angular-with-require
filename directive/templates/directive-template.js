@@ -1,7 +1,5 @@
 define(['angular'], function(angular) {
     'use strict';
-    /* Directives */
-
     angular.module('<%= name %>Module', [])
         .directive('<%= name %>', [
             function() {

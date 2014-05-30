@@ -3,7 +3,7 @@ define(['angular-mocks', '<%= name %>'], function() {
         var element;
         var $scope;
         beforeEach(module('<%= name %>Module'));
-        beforeEach(module('<%= name %>/<%= name %>.tpl.html'));
+        beforeEach(module('src/<%= name %>/<%= name %>.tpl.html'));
         beforeEach(inject(function($compile, _$rootScope_) {
             $scope = _$rootScope_;
             element = angular.element("<<%=name %>></<%= name%>>");
