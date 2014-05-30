@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= _.slugify(appname) %></title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="src/vendor/require.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/vendor/require.js" type="text/javascript" charset="utf-8"></script><% if (includeModernizr) { %>
+    <script src="src/vendor/modernizr.js" type="text/javascript" charset="utf-8"></script><% } %>
     <!--build tag-->
     <!--do not remove the build script tag. This is automatically replace when the script is built-->
     <script src="src/config.js" type="text/javascript" charset="utf-8"></script>

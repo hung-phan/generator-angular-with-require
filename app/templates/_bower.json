@@ -14,9 +14,9 @@
     "angular-animate": "*",<% } %>
     "jquery": "~2.1.1",<% if (includeButtonCss) { %>
     "Buttons": "*",<% } %><% if (includeAnimateCss) { %>
-    "animate-sass": "*",<% } %>
-    "requirejs": "*",
-    "modernizr": "*"
+    "animate-sass": "*",<% } %><% if (includeModernizr) { %>
+    "modernizr": "*",<% } %>
+    "requirejs": "*"
   }
 }
 

@@ -357,8 +357,7 @@ module.exports = function(grunt) {
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
             }
-        },
-
+        },<% if (includeModernizr) { %>
 
         // Generates a custom Modernizr build that includes only the tests you
         // reference in your app
@@ -368,14 +367,14 @@ module.exports = function(grunt) {
                 outputFile: '<%%= yeoman.dist %>/src/vendor/modernizr.js',
                 files: {
                     src: [
-                        '<%%= yeoman.dist %>/scr/{,*/}*.js',
+                        '<%%= yeoman.dist %>/src/{,*/}*.js',
                         '<%%= yeoman.dist %>/styles/{,*/}*.css',
                         '!<%%= yeoman.dist %>/src/vendor/*'
                     ]
                 },
                 uglify: true
             }
-        },
+        },<% } %>
 
         // Run some tasks in parallel to speed up build process
         concurrent: {
@@ -460,8 +459,8 @@ module.exports = function(grunt) {
         'clean:afterBuild',
         // 'uglify', // this task is not required for the reason that grunt-requirejs already minified the files
         'copy:dist',
-        'requirejs-bundle',
-        //'modernizr', // this will be done in the future
+        'requirejs-bundle',<% if (includeModernizr) { %>
+        'modernizr',<% } %>
         // 'rev', // turns on this task if you want to use revision
         'usemin',
         'htmlmin'

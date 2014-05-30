@@ -204,10 +204,12 @@ AngularWithRequireGenerator.prototype.install = function install() {
   if (this.options['skip-install']) { return; }
 
   var done = this.async();
+  var self = this;
   this.installDependencies({
     skipMessage: this.options['skip-install-message'],
     skipInstall: this.options['skip-install'],
     callback: function() {
+      //copy requirejs
       var projectDir = process.cwd() + '/app';
       fs.exists(projectDir + '/src/vendor/require.js', function(exists) {
         if (!exists) {
@@ -215,6 +217,16 @@ AngularWithRequireGenerator.prototype.install = function install() {
           .pipe(fs.createWriteStream(projectDir + '/src/vendor/require.js'));
         }
       });
+
+      if (self.includeModernizr) {
+        //copy modernizr
+        fs.exists(projectDir + '/src/vendor/modernizr.js', function(exists) {
+          if (!exists) {
+            fs.createReadStream(projectDir + '/bower_components/modernizr/modernizr.js')
+            .pipe(fs.createWriteStream(projectDir + '/src/vendor/modernizr.js'));
+          }
+        });
+      }
     }
   });
 };
