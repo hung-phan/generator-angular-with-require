@@ -7,7 +7,7 @@ define(['angular-mocks', '<%= name %>'], function() {
         }));
 
         it('should be equal dummy', function() {
-            expect(<%= uppercaseName %>Service()).toEqual('Hello world');
+            expect(<%= uppercaseName %>Service).toEqual('Hello world');
         });
     });
 });
