@@ -22,6 +22,7 @@ requirejs.config({
         'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
         /*require home module*/
         'home': 'home/home',
+        /*--insert code tag--do not remove*/
     },
     shim: {
         'angular': { exports: 'angular', deps: ['jquery'] },
@@ -33,5 +34,5 @@ requirejs.config({
         'bindonce': ['angular'],<% } %><% if (includeUIBootstrap) { %>
         'ui-bootstrap-tpls': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         'bootstrap': ['jquery']<% } %>
-    }/* test tag -- do not remove this tag */
+    }/*--test tag--do not remove*/
 });
