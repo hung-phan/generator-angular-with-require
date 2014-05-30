@@ -4,9 +4,9 @@ define(['angular', 'angular-ui-router'], function(angular) {
         $stateProvider.state('home', {
             url: '/',
             templateUrl: 'src/home/home.tpl.html',
-            controller: 'HomePageController'
+            controller: 'HomeController'
         });
-    }]).controller('HomePageController', [
+    }]).controller('HomeController', [
         '$scope',
         '$location',
         function($scope, $location) {

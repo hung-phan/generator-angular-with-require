@@ -1,16 +1,17 @@
-define([
-    'angular',
-    'services'
-], function(angular) {
-    'use strict';
-
-    /* Controllers */
-    angular.module('<%= name %>Controllers', [
-        'webServices'
-    ]).controller('DummyController', [
+define(['angular', 'angular-ui-router'], function(angular) {
+    angular.module('<%= name %>Module', ['ui.router']).config(['$stateProvider', function($stateProvider) {
+        /*config path for home page*/
+        $stateProvider.state('<%= name %>', {
+            url: '/<%= name %>',
+            templateUrl: 'src/<%= name %>/<%= name %>.tpl.html',
+            controller: 'DummyController'
+        });
+    }]).controller('DummyController', [
         '$scope',
-        function($scope) {
+        '$location',
+        function($scope, $location) {
             /* initialize */
+            $scope.pageTitle = 'dummy';
         }
     ]);
 });
