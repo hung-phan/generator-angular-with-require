@@ -17,5 +17,5 @@ ControllerGenerator.prototype.files = function files() {
   this.mkdir(prefix);
   this.template('controller-template.js'        , prefix + this.name + '.js');
   this.template('controller-template.spec.js'   , prefix + this.name + '.spec.js');
-  this.template('controller-template.tpl.html.' , prefix + this.name + '.html');
+  this.template('controller-template.tpl.html' , prefix + this.name + '.tpl.html');
 };
