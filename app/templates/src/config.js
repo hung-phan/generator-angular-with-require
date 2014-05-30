@@ -26,7 +26,7 @@ requirejs.config({
     },
     shim: {
         'angular': { exports: 'angular', deps: ['jquery'] },
-        'anuglar-mocks': ['angular'],<% if (includeLodash) { %>
+        'angular-mocks': ['angular'],<% if (includeLodash) { %>
         'lodash': { exports: '_' },<% } %>
         'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
         'angular-animate': ['angular'],<% } %>
