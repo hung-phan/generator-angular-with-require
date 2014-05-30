@@ -37,7 +37,7 @@ Other dependencies
 
 ## Structure
 
-New structure is based on [ng-boilerplate] (https://github.com/ngbp/ngbp) but optimized with requirejs.
+__New structure__ is based on [ng-boilerplate] (https://github.com/ngbp/ngbp) but optimized with requirejs.
 
 ```
 application/
@@ -131,13 +131,16 @@ application/
 ## Usage
 
 The version of generator uses SASS Bootstrap as its main theme. If you want to use Compass framework, make sure that you
-view their docs to know what to include [Compass](http://compass-style.org/reference/compass)
+view their docs to know what to include [Compass](http://compass-style.org/reference/compass).
+
+For other css libraries from app/bower_components, copy them into app/styles, and it will automatically concat
+into __style.css__ file
 
 To run the serve, and start building your application
 ```
 $ grunt serve
 ```
-It will automatically open the webpage on your localhost:9000, or you will have to do it manuallly
+It will automatically open the webpage on your localhost:9000, or you will have to do it manually
 
 To run test
 ```
@@ -146,7 +149,7 @@ $ grunt karma:unit:start
 
 To run e2e test. This requires selenium browser and chromedriver. Make sure you view [angular/protractor] (https://github.com/angular/protractor)
 ```
-$ grunt shell:protractor
+$ grunt shell:protractor # require you to run `grunt serve` first
 ```
 
 To build files for production
@@ -156,12 +159,19 @@ $ grunt build
 
 This also supports for subgenerator for controller, filter, service, and directive as well. Make sure you link them in your
 main module
-
 ```
 $ yo angular-with-require:controller "name" #replace the name with your module name
 $ yo angular-with-require:service "name" #replace the name with your module name
 $ yo angular-with-require:directive "name" #replace the name with your module name
 $ yo angular-with-require:filter "name" #replace the name with your module name
+```
+
+The subgenerator will automatically create link in your app/src/config.js file with the name of the module. Additionally,
+it will automatically copy all configurations for __paths__ and __shim__ into __test/test-main.js__
+
+To manually copy requirejs config to __test/test-main.js__, run:
+```
+$ grunt requirejs-config-copy
 ```
 
 ## License
