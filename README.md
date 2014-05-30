@@ -56,7 +56,8 @@ application/
   |  |- style/
   |  |  |- _custom_mixins.scss
   |  |  |- style.scss
-  |  |  |- <other css files> - just copy other css files into this folder and rerun `grunt serve` task
+  |  |  |- <other css files> - just copy other css files into this folder and
+  |  |  |- rerun `grunt serve` task to automatically concat css files
   |  |- 404.html
   |  |- favicon.ico
   |  |- index.html
