@@ -2,16 +2,16 @@ define(['angular'], function(angular) {
     'use strict';
     /* Directives */
 
-    angular.module('<%= name %>Directives', [])
-        .directive('paggie', [
+    angular.module('<%= name %>Module', [])
+        .directive('<%= name %>', [
             function() {
                 return {
                     restrict: 'E',
                     replace: true,
-                    templateUrl: '/.html',
+                    templateUrl: 'src/<%= name %>/<%= name %>.tpl.html',
                     scope: {},
                     link: function(scope, element, attrs) {
-
+                        scope.directiveTitle = 'dummy';
                     }
                 };
             }
