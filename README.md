@@ -78,7 +78,7 @@ application/
   |- package.json
 ```
 
-Old structure for revison __v0.2.*__
+Old structure for revision __v0.2.*__
 
 ```
 application/
