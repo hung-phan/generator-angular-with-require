@@ -37,7 +37,7 @@ Other dependencies
 
 ## Structure
 
-This structure is based on [ng-boilerplate] (https://github.com/ngbp/ngbp) but optimized with requirejs
+New structure is based on [ng-boilerplate] (https://github.com/ngbp/ngbp) but optimized with requirejs.
 
 ```
 application/
@@ -73,6 +73,56 @@ application/
   |  |- e2eSpecs
   |  |  |- page.e2espec.js
   |  |  |- <other e2e specs>
+  |- bower.json
+  |- Gruntfile.js
+  |- package.json
+```
+
+Old structure for revison v0.2.*
+
+```
+application/
+  |- app/
+  |  |- bower_components/
+  |  |  |- <third libraries>
+  |  |- images/
+  |  |  |- <image files>
+  |  |- scripts/
+  |  |  |- config.js
+  |  |  |- main.js
+  |  |  |- controllers/
+  |  |  |  |- controllers.js
+  |  |  |- services/
+  |  |  |  |- services.js
+  |  |  |- directives/
+  |  |  |  |- directives.js
+  |  |  |- filters/
+  |  |  |  |- filters.js
+  |  |- style/
+  |  |  |- _custom_mixins.scss
+  |  |  |- style.scss
+  |  |  |- <other css files> - just copy other css files into this folder and
+  |  |  |- rerun `grunt serve` task to automatically concat css files
+  |  |- 404.html
+  |  |- favicon.ico
+  |  |- index.html
+  |  |- robots.txt
+  |- config/
+  |  |- e2e.config.js
+  |  |- karma.config.js
+  |- dist/
+  |  |- <build>
+  |- node_modules/
+  |  |- <node module code>
+  |- test/
+  |  |- e2eSpecs
+  |  |  |- page.e2espec.js
+  |  |  |- <other e2e specs>
+  |  |- specs/
+  |  |  |- <specs files>
+  |  |- helpers/
+  |  |  |- <helper file for specs>
+  |  |- test-main.js
   |- bower.json
   |- Gruntfile.js
   |- package.json
