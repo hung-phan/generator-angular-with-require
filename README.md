@@ -35,6 +35,45 @@ Other dependencies
 
 5. Compass (gem install compass)
 
+## Structure - based on [ng-boilerplate (https://github.com/ngbp/ngbp) but optimized with requirejs
+```
+application/
+  |- app/
+  |  |- bower_components/
+  |  |  |- <third libraries>
+  |  |- images/
+  |  |  |- <image files>
+  |  |- src/
+  |  |  |- config.js
+  |  |  |- main.js
+  |  |  |- <codeModule>/
+  |  |  |  |- codeModule.js
+  |  |  |  |- codeModule.spec.js
+  |  |  |  |- codeModule.tpl.html
+  |  |- style/
+  |  |  |- _custom_mixins.scss
+  |  |  |- style.scss
+  |  |  |- <other css files> - just copy other css files into this folder and rerun `grunt serve` task
+  |  |- 404.html
+  |  |- favicon.ico
+  |  |- index.html
+  |  |- robots.txt
+  |- config/
+  |  |- e2e.config.js
+  |  |- karma.config.js
+  |- dist/
+  |  |- <build>
+  |- node_modules/
+  |  |- <node module code>
+  |- test/
+  |  |- e2eSpecs
+  |  |  |- page.e2espec.js
+  |  |  |- <other e2e specs>
+  |- bower.json
+  |- Gruntfile.js
+  |- package.json
+```
+
 ## Usage
 
 The version of generator uses SASS Bootstrap as its main theme. If you want to use Compass framework, make sure that you

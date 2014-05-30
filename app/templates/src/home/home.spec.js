@@ -11,7 +11,7 @@ define(['angular-mocks', 'home'], function() {
             homeController = $controller('HomeController', {
                 '$scope': $scope,
                 '$location': $location
-            })
+            });
         }));
 
         it('should be equal dummy', function() {

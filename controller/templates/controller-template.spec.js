@@ -11,7 +11,7 @@ define(['angular-mocks', '<%= name %>'], function() {
             dummy<%= uppercaseName %>Controller = $controller('Dummy<%= uppercaseName %>Controller', {
                 '$scope': $scope,
                 '$location': $location
-            })
+            });
         }));
 
         it('should be equal dummy', function() {
