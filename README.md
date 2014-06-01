@@ -144,7 +144,7 @@ It will automatically open the webpage on your localhost:9000, or you will have 
 
 To run test
 ```
-$ grunt karma:unit
+$ grunt karma:unit:start
 ```
 
 To run e2e test. This requires selenium browser and chromedriver. Make sure you view [angular/protractor] (https://github.com/angular/protractor)
