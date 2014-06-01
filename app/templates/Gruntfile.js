@@ -58,7 +58,7 @@ module.exports = function(grunt) {
         watch: {
             js: {
                 files: [
-                    '<%%= yeoman.app %>/src/{,*/}*.js'
+                    '<%%= yeoman.app %>/src/{,*/}*.js',
                     '!<%%= yeoman.app %>/src/{,*/}*.spec.js'
                 ],
                 tasks: ['jshint'],
