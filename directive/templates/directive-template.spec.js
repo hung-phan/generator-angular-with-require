@@ -15,5 +15,4 @@ define(['angular-mocks', '<%= name %>'], function() {
             expect(element.html()).toBe('This is directive for dummy');
         });
     });
-
 });
