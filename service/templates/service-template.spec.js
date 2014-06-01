@@ -1,5 +1,5 @@
 define(['angular-mocks', '<%= name %>'], function() {
-    describe('controller title', function() {
+    describe('service name', function() {
         var <%= uppercaseName %>Service;
         beforeEach(module('<%= name %>Module'));
         beforeEach(inject(function(_<%= uppercaseName %>Service_) {
