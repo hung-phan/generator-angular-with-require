@@ -144,7 +144,7 @@ It will automatically open the webpage on your localhost:9000, or you will have 
 
 To run test
 ```
-$ grunt karma:unit:start
+$ grunt karma:unit
 ```
 
 To run e2e test. This requires selenium browser and chromedriver. Make sure you view [angular/protractor] (https://github.com/angular/protractor)
@@ -171,7 +171,7 @@ it will automatically copy all configurations for __paths__ and __shim__ into __
 
 To manually copy requirejs config to __test/test-main.js__, run:
 ```
-$ grunt requirejs-config-copy
+$ grunt requirejs-config-copy # this is only required when testing without `grunt serve`
 ```
 
 ## License
