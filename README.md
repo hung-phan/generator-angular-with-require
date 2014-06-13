@@ -170,7 +170,7 @@ The subgenerator will automatically create link in your app/src/config.js file w
 it will automatically copy all configurations for __paths__ and __shim__ into __test/test-main.js__
 
 To manually copy requirejs config to __test/test-main.js__, run:
-```
+```bash
 $ grunt requirejs-config-copy # this is only required when testing without `grunt serve`
 ```
 
