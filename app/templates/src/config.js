@@ -7,7 +7,7 @@ requirejs.config({
         /*require angular resource for easily handling sending and receiving request*/
         'angular-resource': '../bower_components/angular-resource/angular-resource',<% if (includeAngularAnimate) { %>
         /*require angular animate for easily handling animation. I recommend to use this with tweenmax (bower install --save greensock)*/
-        'angular-animate': '../bower_components/angular-animate/angular-animate', <% } %>
+        'angular-animate': '../bower_components/angular-animate/angular-animate',<% } %>
         /*require angular for better handling and binding controller*/
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeBindonce) { %>
         /*require bindonce to optimize watch for angular binding [https://github.com/Pasvaz/bindonce]*/

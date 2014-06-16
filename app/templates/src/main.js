@@ -2,7 +2,7 @@ require([
     'angular',
     'jquery',
     'angular-resource',<% if (includeAngularAnimate) { %>
-    'angular-animate', <% } %>
+    'angular-animate',<% } %>
     'angular-ui-router',<% if (includeBindonce) { %>
     'bindonce',<% } %><% if (includeUIBootstrap) { %>
     'ui-bootstrap-tpls',<% } %><% if (includeLodash) { %>
@@ -20,7 +20,7 @@ require([
             'ui.router',
             'ngResource',<% if (includeUIBootstrap) { %>
             'ui.bootstrap',<% } %><% if (includeAngularAnimate) { %>
-            'ngAnimate', <% } %><% if (includeBindonce) { %>
+            'ngAnimate',<% } %><% if (includeBindonce) { %>
             'pasvaz.bindonce',<% } %>
             'homeModule'
         ]).config(['$urlRouterProvider', '$provide', function($urlRouterProvider, $provide) {
