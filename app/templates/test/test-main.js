@@ -36,9 +36,7 @@ requirejs.config({
         /*require lodash library [http://lodash.com/docs]*/
         'lodash': '../bower_components/lodash/dist/lodash',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         /*require bootstrap.js to make bootstrap components work*/
-        'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap',<% } %>
-        /*require home module*/
-        'home': 'home/home'
+        'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap'<% } %>
     },
     shim: {
         'angular': { exports: 'angular', deps: ['jquery'] },
