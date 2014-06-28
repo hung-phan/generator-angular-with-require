@@ -8,7 +8,7 @@ require([
     'ui-bootstrap-tpls',<% } %><% if (includeLodash) { %>
     'lodash',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
     'bootstrap',<% } %>
-    'home'
+    'home/home'
 ], function(angular) {
     'use strict';
 

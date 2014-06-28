@@ -1,4 +1,4 @@
-define(['angular-mocks', '<%= name %>'], function() {
+define(['angular-mocks', '<%= name %>/<%= name %>'], function() {
     describe('directive with templateUrl', function() {
         var element;
         var $scope;

@@ -1,4 +1,4 @@
-define(['angular-mocks', '<%= name %>'], function() {
+define(['angular-mocks', '<%= name %>/<%= name %>'], function() {
     describe('controller title', function() {
         var $scope;
         var $location;

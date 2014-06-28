@@ -1,4 +1,4 @@
-define(['angular-mocks', 'home'], function() {
+define(['angular-mocks', 'home/home'], function() {
     describe('controller title', function() {
         var $scope;
         var $location;

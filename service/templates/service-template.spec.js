@@ -1,4 +1,4 @@
-define(['angular-mocks', '<%= name %>'], function() {
+define(['angular-mocks', '<%= name %>/<%= name %>'], function() {
     describe('service name', function() {
         var <%= uppercaseName %>Service;
         beforeEach(module('<%= name %>Module'));
