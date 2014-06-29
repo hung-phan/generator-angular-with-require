@@ -221,14 +221,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // Automatically inject Bower components into the HTML file
-        'bower-install': {
-            app: {
-                html: '<%%= yeoman.app %>/index.html',
-                ignorePath: '<%%= yeoman.app %>/'
-            }
-        },
-
         // bundle script for bower_components into app/src/main.js
         bower: { target: { rjsConfig: '<%%= yeoman.app %>/src/config.js' } },
 

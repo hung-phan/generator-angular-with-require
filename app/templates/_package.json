@@ -25,7 +25,6 @@
     "karma": "*",
     "grunt-karma": "*",
     "grunt-contrib-jasmine": "*",<% } %>
-    "grunt-bower-install": "*",
     "grunt-contrib-imagemin": "*",
     "grunt-contrib-watch": "*",
     "grunt-contrib-requirejs": "*",
