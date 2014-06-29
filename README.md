@@ -2,6 +2,7 @@
 
 A generator for [Yeoman](http://yeoman.io).
 
+[![NPM](https://nodei.co/npm/generator-angular-with-require.png?downloads=true)](https://nodei.co/npm/generator-angular-with-require/)
 
 ## Getting Started
 
