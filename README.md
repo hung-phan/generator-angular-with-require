@@ -149,6 +149,14 @@ $ grunt karma:unit
 ```
 
 To run e2e test. This requires selenium browser and chromedriver. Make sure you view [angular/protractor] (https://github.com/angular/protractor)
+
+Setup protractor and seleium browser
+```bash
+$ npm install -g protractor
+$ webdriver-manager update
+```
+
+Run actual e2e test
 ```bash
 $ grunt shell:protractor # require you to run `grunt serve` first
 ```
