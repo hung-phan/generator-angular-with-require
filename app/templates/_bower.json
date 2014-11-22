@@ -7,9 +7,8 @@
     "lodash": "*",<% } %>
     "angular": "*",
     "angular-resource": "*",
-    "angular-mocks": "*",<% if (includeBindonce) { %>
-    "angular-bindonce": "*",<% } %>
-    "angular-ui-router": "~0.2.10",<% if (includeUIBootstrap) { %>
+    "angular-mocks": "*",
+    "angular-ui-router": "~0.2.11",<% if (includeUIBootstrap) { %>
     "angular-bootstrap": "*",<% } %><% if (includeAngularAnimate) { %>
     "angular-animate": "*",<% } %>
     "jquery": "~2.1.1",<% if (includeButtonCss) { %>

@@ -91,7 +91,6 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
       { name: 'Lodash.js'                 , value: 'includeLodash'         , checked: false } ,
       { name: 'Angular UI-Bootstrap'      , value: 'includeUIBootstrap'    , checked: false } ,
       { name: 'Angular animate'           , value: 'includeAngularAnimate' , checked: false } ,
-      { name: 'Bindonce by Pasvaz'        , value: 'includeBindonce'       , checked: false } ,
       { name: 'Jasmine Testing framework' , value: 'includeJasmine'        , checked: true }  ,
       { name: 'Modernizr'                 , value: 'includeModernizr'      , checked: true }
     ]
@@ -104,7 +103,6 @@ AngularWithRequireGenerator.prototype.askForJSFile = function askForJSFile() {
     this.includeLodash         = includeJS('includeLodash');
     this.includeUIBootstrap    = includeJS('includeUIBootstrap');
     this.includeAngularAnimate = includeJS('includeAngularAnimate');
-    this.includeBindonce       = includeJS('includeBindonce');
     this.includeJasmine        = includeJS('includeJasmine');
     this.includeModernizr      = includeJS('includeModernizr');
 

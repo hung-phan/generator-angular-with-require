@@ -3,8 +3,7 @@ require([
     'jquery',
     'angular-resource',<% if (includeAngularAnimate) { %>
     'angular-animate',<% } %>
-    'angular-ui-router',<% if (includeBindonce) { %>
-    'bindonce',<% } %><% if (includeUIBootstrap) { %>
+    'angular-ui-router',<% if (includeUIBootstrap) { %>
     'ui-bootstrap-tpls',<% } %><% if (includeLodash) { %>
     'lodash',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
     'bootstrap',<% } %>
@@ -20,8 +19,7 @@ require([
             'ui.router',
             'ngResource',<% if (includeUIBootstrap) { %>
             'ui.bootstrap',<% } %><% if (includeAngularAnimate) { %>
-            'ngAnimate',<% } %><% if (includeBindonce) { %>
-            'pasvaz.bindonce',<% } %>
+            'ngAnimate',<% } %>
             'homeModule'
         ]).config(['$urlRouterProvider', '$provide', function($urlRouterProvider, $provide) {
             $urlRouterProvider.otherwise('/');

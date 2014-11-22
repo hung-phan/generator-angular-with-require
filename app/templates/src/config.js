@@ -9,9 +9,7 @@ requirejs.config({
         /*require angular animate for easily handling animation. I recommend to use this with tweenmax (bower install --save greensock)*/
         'angular-animate': '../bower_components/angular-animate/angular-animate',<% } %>
         /*require angular for better handling and binding controller*/
-        'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeBindonce) { %>
-        /*require bindonce to optimize watch for angular binding [https://github.com/Pasvaz/bindonce]*/
-        'bindonce': '../bower_components/angular-bindonce/bindonce',<% } %><% if (includeUIBootstrap) { %>
+        'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',<% if (includeUIBootstrap) { %>
         /*require ui-bootstrap with the embeded template [http://angular-ui.github.io/bootstrap/]*/
         'ui-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls',<% }%>
         /*require jquery*/
@@ -28,8 +26,7 @@ requirejs.config({
         'lodash': { exports: '_' },<% } %>
         'angular-resource': ['angular'],<% if (includeAngularAnimate) { %>
         'angular-animate': ['angular'],<% } %>
-        'angular-ui-router': ['angular'],<% if (includeBindonce) { %>
-        'bindonce': ['angular'],<% } %><% if (includeUIBootstrap) { %>
+        'angular-ui-router': ['angular'],<% if (includeUIBootstrap) { %>
         'ui-bootstrap-tpls': ['angular'],<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         'bootstrap': ['jquery']<% } %>
     }/*--requirejs config copy tag--do not remove*/
