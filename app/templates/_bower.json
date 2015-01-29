@@ -8,7 +8,7 @@
     "angular": "*",
     "angular-resource": "*",
     "angular-mocks": "*",
-    "angular-ui-router": "~0.2.11",<% if (includeUIBootstrap) { %>
+    "angular-ui-router": "~0.2.13",<% if (includeUIBootstrap) { %>
     "angular-bootstrap": "*",<% } %><% if (includeAngularAnimate) { %>
     "angular-animate": "*",<% } %>
     "jquery": "~2.1.1",<% if (includeButtonCss) { %>

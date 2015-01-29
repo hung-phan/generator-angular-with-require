@@ -15,7 +15,7 @@ requirejs.config({
         /*require jquery*/
         'jquery': '../bower_components/jquery/dist/jquery',<% if (includeLodash) { %>
         /*require lodash library [http://lodash.com/docs]*/
-        'lodash': '../bower_components/lodash/dist/lodash',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
+        'lodash': '../bower_components/lodash/lodash',<% } %><% if (cssFramework === 'SASSBootstrap') { %>
         /*require bootstrap.js to make bootstrap components work*/
         'bootstrap': '../bower_components/sass-bootstrap/dist/js/bootstrap'<% } %>
         /*--insert code tag--do not remove*/
