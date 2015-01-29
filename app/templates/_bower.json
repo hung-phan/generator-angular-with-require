@@ -11,7 +11,7 @@
     "angular-ui-router": "~0.2.13",<% if (includeUIBootstrap) { %>
     "angular-bootstrap": "*",<% } %><% if (includeAngularAnimate) { %>
     "angular-animate": "*",<% } %>
-    "jquery": "~2.1.1",<% if (includeButtonCss) { %>
+    "jquery": "~2.1.2",<% if (includeButtonCss) { %>
     "Buttons": "*",<% } %><% if (includeAnimateCss) { %>
     "animate-sass": "*",<% } %><% if (includeModernizr) { %>
     "modernizr": "*",<% } %>
